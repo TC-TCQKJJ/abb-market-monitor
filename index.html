@@ -147,6 +147,65 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Micr
   .comp-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important}}
+
+/* ═══════════ THEME: DARK ═══════════ */
+body.theme-dark{--bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--text2:#8b949e;--accent:#d42020;--accent2:#ff7840;--tag-bg:#1a2332;--shadow:0 1px 3px rgba(0,0,0,.5)}
+body.theme-dark .hdr{background:rgba(13,17,23,.97);border-bottom-color:#30363d}
+body.theme-dark .card{background:#161b22;border-color:#30363d;box-shadow:0 1px 3px rgba(0,0,0,.4)}
+body.theme-dark .card:hover{border-color:#d42020;box-shadow:0 4px 20px rgba(212,32,32,.15)}
+body.theme-dark .card-brief{color:#8b949e}
+body.theme-dark .card-why{background:rgba(212,32,32,.06);border-left-color:#d42020;color:#e6edf3}
+body.theme-dark .card-title a{color:#58a6ff}
+body.theme-dark .search-wrap input{background:#0d1117;border-color:#30363d;color:#e6edf3}
+body.theme-dark .sort-btn{background:#21262d;border-color:#30363d;color:#c9d1d9}
+body.theme-dark .sort-btn.active{background:#d42020;border-color:#d42020;color:#fff}
+body.theme-dark .comp-tile{background:#161b22;border-color:#30363d;color:#e6edf3}
+body.theme-dark .stat{background:#161b22;border-color:#30363d}
+body.theme-dark .stat-num{color:#e6edf3}
+body.theme-dark .hero h1{color:#e6edf3}
+body.theme-dark .hero p{color:#8b949e}
+body.theme-dark .hero-tag{color:#ff7840}
+body.theme-dark .src-bar{background:#0d1117;border-color:#30363d;color:#8b949e}
+body.theme-dark .stats{background:#161b22;border-color:#30363d}
+body.theme-dark .ft{color:#484f58;border-top-color:#21262d}
+body.theme-dark .empty{color:#8b949e}
+body.theme-dark .sec-title{color:#e6edf3}
+body.theme-dark .sec-sub{color:#8b949e}
+body.theme-dark .card-tag.w{background:#1a2332;color:#ffa657}
+body.theme-dark .card-tag.a{background:#2d1216;color:#ff7b72}
+body.theme-dark .card-tag.i{background:#122d42;color:#79c0ff}
+body.theme-dark .card-tag.n{background:#1a2332;color:#d2a8ff}
+body.theme-dark .card-date{color:#484f58}
+body.theme-dark .card-score.c{background:#2d1216;color:#ff7b72}
+body.theme-dark .card-score.h{background:#2d1a12;color:#ffa657}
+body.theme-dark .card-score.m{background:#1a2332;color:#8b949e}
+body.theme-dark .hdr-badge{background:#d42020;color:#fff}
+body.theme-dark .hdr-title{color:#e6edf3}
+body.theme-dark .hdr-ver{color:#484f58;border-color:#30363d}
+body.theme-dark .hdr-live{color:#ff7840}
+
+/* ═══════════ THEME: SLIDE (presentation) ═══════════ */
+body.theme-slide{--bg:#fafafa;--surface:#fff;--border:#e0e0e0;--text:#1a1a1a;--text2:#666;--accent:#d42020;font-size:18px;line-height:1.8}
+body.theme-slide .container{max-width:1100px}
+body.theme-slide .hdr{height:60px;font-size:1rem}
+body.theme-slide .hero h1{font-size:2.4rem;letter-spacing:-0.02em}
+body.theme-slide .hero p{font-size:1.1rem}
+body.theme-slide .card{padding:var(--l);border-radius:12px}
+body.theme-slide .card-title{font-size:1.15rem}
+body.theme-slide .card-brief{font-size:1rem}
+body.theme-slide .card-why{font-size:0.95rem;padding:14px 18px}
+body.theme-slide .stat-num{font-size:2rem}
+body.theme-slide .comp-name{font-size:1.1rem}
+body.theme-slide .card-grid{gap:20px}
+body.theme-slide .card-score{font-size:0.95rem;padding:3px 10px}
+body.theme-slide .card-tag{font-size:0.75rem;padding:3px 10px}
+body.theme-slide .robotArm{opacity:0.04 !important}
+
+/* Theme toggle button */
+.theme-switch{position:fixed;bottom:20px;right:20px;z-index:200;display:flex;gap:6px}
+.theme-switch button{width:36px;height:36px;border-radius:50%;border:2px solid var(--border);background:var(--surface);cursor:pointer;font-size:16px;transition:all .2s;display:flex;align-items:center;justify-content:center}
+.theme-switch button:hover{border-color:var(--accent);transform:scale(1.1)}
+.theme-switch button.active{border-color:var(--accent);background:var(--accent);color:#fff}
 </style>
 </head>
 <body>
@@ -426,6 +485,10 @@ function initApp() {
 </script>
 
 <script>
+
+// ═══════════ THEME ═══════════
+function setTheme(t){document.body.className='theme-'+t;localStorage.setItem('abb-theme',t);document.querySelectorAll('.theme-switch button').forEach(function(b){b.classList.toggle('active',b.id==='btn-'+t)})}
+(function(){var t=new URLSearchParams(location.search).get('theme')||localStorage.getItem('abb-theme')||'light';setTheme(t)})();
 (function t(){var d=new Date(),p=function(n){return n<10?'0'+n:n};document.getElementById('clock').textContent=d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds());setTimeout(t,1e3)})();
 
 var sortMode='date',searchQuery='';
@@ -529,6 +592,13 @@ render();
   setTimeout(function() { updateArm(600, 300); }, 100);
 })();
 </script>
+
+<!-- ═══ THEME SWITCHER ═══ -->
+<div class="theme-switch">
+  <button onclick="setTheme('light')" title="Light" id="btn-light">☀️</button>
+  <button onclick="setTheme('dark')" title="Dark" id="btn-dark">🌙</button>
+  <button onclick="setTheme('slide')" title="Slide" id="btn-slide">📽️</button>
+</div>
 </body>
 </html>
 // render() called by initApp after data load
