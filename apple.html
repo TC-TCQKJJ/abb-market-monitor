@@ -240,6 +240,9 @@ fetch('signals.json?t='+Date.now())
     document.getElementById('stat-total').textContent=d.total||0;
     document.getElementById('stat-crit').textContent=c;
     render();renderComps();
+    // Animate counters
+    setTimeout(function(){animateCounter(document.getElementById('stat-total'),d.total||24,1200)},400);
+    setTimeout(function(){animateCounter(document.getElementById('stat-crit'),c,600)},700);
   })
   .catch(function(e){
     document.getElementById('feed').innerHTML='<div class="empty"><div class="empty-icon">⚠️</div>Failed to load data</div>';
@@ -291,40 +294,6 @@ function render(){
         observer.observe(t);
       });
     },50);
-  };
-})();
-
-// ═══════ COUNTER ANIMATION ═══════
-function animateCounter(el,target,duration){
-  var start=0,startTime=null;
-  function step(t){
-    if(!startTime)startTime=t;
-    var p=Math.min((t-startTime)/duration,1);
-    var eased=1-Math.pow(1-p,3);
-    el.textContent=Math.round(start+(target-start)*eased);
-    if(p<1)requestAnimationFrame(step);
-    else{el.textContent=target;el.classList.add('counted');setTimeout(function(){el.classList.remove('counted')},500)}
-  }
-  requestAnimationFrame(step);
-}
-// Hook into data load
-var _origThen = null;
-(function(){
-  var origFetch = window.fetch;
-  // Override: after data loads, animate counters
-  var _fetch = fetch;
-  window.fetch = function(){
-    var p = _fetch.apply(this, arguments);
-    if(arguments[0]&&arguments[0].indexOf('signals.json')>-1){
-      p.then(function(r){return r.clone().json()}).then(function(d){
-        setTimeout(function(){
-          animateCounter(document.getElementById('stat-total'),d.total||24,1200);
-          var c=d.signals?d.signals.filter(function(s){return s.level==='critical'}).length:3;
-          setTimeout(function(){animateCounter(document.getElementById('stat-crit'),c,800)},300);
-        },600);
-      });
-    }
-    return p;
   };
 })();
 
