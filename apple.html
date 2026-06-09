@@ -141,6 +141,34 @@ body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Aria
   .sec{padding:80px 16px}
   .pill-group{flex-direction:column;align-items:stretch}
 }
+
+/* ═══════ APPLE-STYLE ANIMATIONS ═══════ */
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Hero stagger */
+.hero-stagger{opacity:0;transform:translateY(20px);animation:heroIn .8s cubic-bezier(.16,1,.3,1) forwards}
+.hero-stagger:nth-child(1){animation-delay:.1s}
+.hero-stagger:nth-child(2){animation-delay:.25s}
+.hero-stagger:nth-child(3){animation-delay:.4s}
+.hero-stagger:nth-child(4){animation-delay:.55s}
+.hero-stagger:nth-child(5){animation-delay:.7s}
+@keyframes heroIn{to{opacity:1;transform:translateY(0)}}
+
+/* Nav glass transition */
+.nav{transition:background .4s,backdrop-filter .4s}
+.nav.transparent{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+
+/* Parallax hero */
+.sec-hero{transition:transform .1s linear;will-change:transform}
+
+/* Counter pop */
+@keyframes countPop{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
+.stat-num.counted{animation:countPop .4s cubic-bezier(.16,1,.3,1)}
+
+/* Pill arrow */
+.pill .chevron{display:inline-block;transition:transform .3s cubic-bezier(.16,1,.3,1)}
 </style>
 </head>
 <body>
@@ -226,7 +254,104 @@ function render(){
   var h='';if(!items.length){h='<div class="empty"><div class="empty-icon">🔍</div>No signals match</div>'}
   items.forEach(function(item,i){
     var lv=item.score>=85?'c':item.score>=75?'h':'m';
-    h+='<div class="card" style="animation-delay:'+(i*.03)+'s"><div class="card-head"><span class="card-src '+item.t+'">'+item.s+'</span><span class="card-date">'+item.d+'</span><span class="card-score '+lv+'">'+item.score+'</span></div>';
+    h+='<div class="card" style="animation-delay:'+(i*.03)+'s"><div class="card-head"><span class=
+
+// ═══════ INTERSECTION OBSERVER — Scroll Reveal ═══════
+(function(){
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  },{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+
+  // Observe cards after render
+  var origRender = render;
+  render = function(){
+    origRender();
+    setTimeout(function(){
+      document.querySelectorAll('.card').forEach(function(c,i){
+        c.classList.add('reveal');
+        c.style.animationDelay=(i*.04)+'s';
+        observer.observe(c);
+      });
+    },50);
+  };
+
+  // Observe competitor tiles
+  var origRenderComps = renderComps;
+  renderComps = function(){
+    origRenderComps();
+    setTimeout(function(){
+      document.querySelectorAll('.comp-tile').forEach(function(t,i){
+        t.classList.add('reveal');
+        t.style.transitionDelay=(i*.06)+'s';
+        observer.observe(t);
+      });
+    },50);
+  };
+})();
+
+// ═══════ COUNTER ANIMATION ═══════
+function animateCounter(el,target,duration){
+  var start=0,startTime=null;
+  function step(t){
+    if(!startTime)startTime=t;
+    var p=Math.min((t-startTime)/duration,1);
+    var eased=1-Math.pow(1-p,3);
+    el.textContent=Math.round(start+(target-start)*eased);
+    if(p<1)requestAnimationFrame(step);
+    else{el.textContent=target;el.classList.add('counted');setTimeout(function(){el.classList.remove('counted')},500)}
+  }
+  requestAnimationFrame(step);
+}
+// Hook into data load
+var _origThen = null;
+(function(){
+  var origFetch = window.fetch;
+  // Override: after data loads, animate counters
+  var _fetch = fetch;
+  window.fetch = function(){
+    var p = _fetch.apply(this, arguments);
+    if(arguments[0]&&arguments[0].indexOf('signals.json')>-1){
+      p.then(function(r){return r.clone().json()}).then(function(d){
+        setTimeout(function(){
+          animateCounter(document.getElementById('stat-total'),d.total||24,1200);
+          var c=d.signals?d.signals.filter(function(s){return s.level==='critical'}).length:3;
+          setTimeout(function(){animateCounter(document.getElementById('stat-crit'),c,800)},300);
+        },600);
+      });
+    }
+    return p;
+  };
+})();
+
+// ═══════ NAV GLASS ON SCROLL ═══════
+(function(){
+  var nav=document.querySelector('.nav'),lastY=0;
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY;
+    if(y<60)nav.classList.add('transparent');
+    else nav.classList.remove('transparent');
+  },{passive:true});
+  // Start transparent
+  nav.classList.add('transparent');
+})();
+
+// ═══════ SUBTLE PARALLAX ═══════
+(function(){
+  var hero=document.querySelector('.sec-hero');
+  if(!hero)return;
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY;
+    if(y<hero.offsetHeight){
+      hero.style.transform='translateY('+(y*.03)+'px)';
+    }
+  },{passive:true});
+})();
+"card-src '+item.t+'">'+item.s+'</span><span class="card-date">'+item.d+'</span><span class="card-score '+lv+'">'+item.score+'</span></div>';
     h+=item.surl?'<div class="card-title"><a href="'+item.surl+'" target="_blank">'+item.title+'</a></div>':'<div class="card-title">'+item.title+'</div>';
     h+='<div class="card-brief">'+item.brief+'</div><div class="card-tags">';
     item.tags.forEach(function(t){h+='<span class="card-tag '+t.c+'">'+t.l+'</span>'});
