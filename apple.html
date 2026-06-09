@@ -3,164 +3,205 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ABB Intelligence — Apple Edition</title>
+<title>ABB Intelligence</title>
 <style>
+/* ═══════════ APPLE DESIGN SYSTEM ═══════════ */
 :root{
-  --bg:#f5f5f7;
-  --card:rgba(255,255,255,.72);
-  --text:#1d1d1f;
-  --text2:#86868b;
-  --accent:#d42020;
-  --accent2:#0071e3;
-  --border:rgba(0,0,0,.08);
-  --shadow:0 1px 3px rgba(0,0,0,.04),0 8px 40px rgba(0,0,0,.06);
-  --radius:18px;
-  --gap:20px;
+  --blue:#0071e3;--link-light:#0066cc;--link-dark:#2997ff;
+  --text:#1d1d1f;--text2:rgba(0,0,0,.56);--text3:rgba(0,0,0,.8);
+  --light-bg:#f5f5f7;--dark-bg:#000;
+  --shadow:rgba(0,0,0,.22) 3px 5px 30px 0;
+  --pill:980px;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',sans-serif;
-  background:var(--bg);color:var(--text);line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
-/* Frosted header */
-.hdr{
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+/* ═══ NAVIGATION GLASS ═══ */
+.nav{
   position:sticky;top:0;z-index:100;
-  background:rgba(245,245,247,.72);backdrop-filter:saturate(180%) blur(24px);
-  -webkit-backdrop-filter:saturate(180%) blur(24px);
-  border-bottom:1px solid var(--border);
-  padding:0 32px;height:52px;
-  display:flex;align-items:center;justify-content:space-between;
+  height:48px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 22px;
+  background:rgba(0,0,0,.8);backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
 }
-.hdr-l{display:flex;align-items:center;gap:10px}
-.hdr-logo{font-size:20px;font-weight:700;letter-spacing:-0.02em;color:var(--accent)}
-.hdr-title{font-size:15px;font-weight:500;color:var(--text)}
-.hdr-meta{font-size:12px;color:var(--text2)}
-/* Main container */
-.container{max-width:860px;margin:0 auto;padding:48px 24px 80px}
-/* Hero */
-.hero{margin-bottom:48px;text-align:center}
-.hero-badge{display:inline-block;font-size:12px;font-weight:600;color:var(--accent);background:rgba(212,32,32,.08);padding:4px 14px;border-radius:20px;margin-bottom:16px;letter-spacing:.04em;text-transform:uppercase}
-.hero h1{font-size:48px;font-weight:700;letter-spacing:-0.03em;line-height:1.1;margin-bottom:12px}
-.hero h1 em{font-style:normal;color:var(--accent)}
-.hero p{font-size:17px;color:var(--text2);max-width:520px;margin:0 auto;line-height:1.5}
-/* Stats row */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);margin-bottom:40px}
-.stat{background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:var(--radius);padding:24px 20px;text-align:center;box-shadow:var(--shadow);transition:transform .2s}
-.stat:hover{transform:translateY(-2px)}
-.stat-num{font-size:36px;font-weight:700;letter-spacing:-0.02em}
-.stat-num.grn{color:#34c759}
-.stat-num.red{color:var(--accent)}
-.stat-lbl{font-size:12px;color:var(--text2);margin-top:4px;font-weight:500}
-/* Toolbar */
-.toolbar{display:flex;gap:10px;align-items:center;margin-bottom:24px}
-.search-wrap{flex:1;position:relative}
-.search-wrap input{
-  width:100%;padding:12px 16px 12px 40px;border:1px solid var(--border);
-  border-radius:12px;font-size:15px;font-family:inherit;
-  background:var(--card);backdrop-filter:blur(12px);
-  color:var(--text);outline:none;transition:all .2s;
-}
-.search-wrap input:focus{border-color:var(--accent2);box-shadow:0 0 0 3px rgba(0,113,227,.12)}
-.search-wrap::before{content:'🔍';position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:14px}
-.sort-btn{
-  padding:10px 18px;border:1px solid var(--border);border-radius:12px;
-  background:var(--card);cursor:pointer;font-size:13px;font-weight:500;
-  color:var(--text2);transition:all .15s;font-family:inherit;white-space:nowrap;
-}
-.sort-btn.active,.sort-btn:hover{background:var(--text);color:#fff;border-color:var(--text)}
-.result-count{font-size:12px;color:var(--text2);white-space:nowrap}
-/* Cards */
-.sec-title{font-size:17px;font-weight:600;margin-bottom:16px;display:flex;align-items:baseline;gap:8px}
-.sec-sub{font-size:13px;color:var(--text2);font-weight:400}
-.card-grid{display:flex;flex-direction:column;gap:12px}
-.card{
-  background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  border:1px solid var(--border);border-radius:var(--radius);padding:24px;
-  box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;
-  animation:fadeUp .5s cubic-bezier(.16,1,.3,1) both;
-}
-.card:hover{transform:translateY(-2px);box-shadow:0 4px 24px rgba(0,0,0,.08)}
+.nav-logo{font-size:17px;font-weight:600;color:#fff;letter-spacing:-.02em}
+.nav-title{font-size:12px;font-weight:400;color:rgba(255,255,255,.64);letter-spacing:-.01em}
+.nav-status{font-size:11px;font-weight:400;color:rgba(255,255,255,.48)}
+/* ═══ SECTION RHYTHM ═══ */
+.sec{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 24px}
+.sec-dark{background:var(--dark-bg);color:#fff}
+.sec-light{background:var(--light-bg);color:var(--text)}
+.sec-hero{min-height:85vh}
+.sec-body{min-height:auto;padding:80px 24px;text-align:left;align-items:stretch}
+/* ═══ TYPOGRAPHY ═══ */
+body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}
+.h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:600;line-height:1.07;letter-spacing:-.015em}
+.h2{font-size:clamp(1.5rem,3.5vw,2.5rem);font-weight:600;line-height:1.10;letter-spacing:-.01em}
+.h3{font-size:1.31rem;font-weight:600;line-height:1.19;letter-spacing:.012em}
+.h4{font-size:1.31rem;font-weight:400;line-height:1.19;letter-spacing:.012em}
+.body{font-size:1.06rem;font-weight:400;line-height:1.47;letter-spacing:-.023em;color:var(--text3)}
+.caption{font-size:.88rem;font-weight:400;line-height:1.29;letter-spacing:-.014em;color:var(--text2)}
+.micro{font-size:.75rem;font-weight:400;line-height:1.33;letter-spacing:-.0075em}
+.sub{max-width:560px;margin:12px auto 0;font-size:1.31rem;font-weight:400;line-height:1.19;letter-spacing:.012em}
+.sec-dark .sub{color:rgba(255,255,255,.64)}
+/* ═══ PILL CTA ═══ */
+.pill{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:var(--pill);font-size:.88rem;font-weight:400;line-height:1.43;letter-spacing:-.014em;text-decoration:none;transition:all .2s}
+.pill-outline-light{border:1px solid #fff;color:#fff}
+.pill-outline-light:hover{background:rgba(255,255,255,.1)}
+.pill-outline-dark{border:1px solid var(--link-light);color:var(--link-light)}
+.pill-outline-dark:hover{background:rgba(0,113,227,.06)}
+.pill-fill{background:var(--blue);color:#fff;border:1px solid transparent}
+.pill-fill:hover{background:#0077ed}
+.pill-group{display:flex;gap:14px;margin-top:24px;justify-content:center;flex-wrap:wrap}
+.chevron{font-size:1.1em;transition:transform .2s}
+.pill:hover .chevron{transform:translateX(3px)}
+/* ═══ STATS STRIP ═══ */
+.stats-strip{display:flex;justify-content:center;gap:clamp(2rem,6vw,5rem);margin-top:48px;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-num{font-size:clamp(2rem,4vw,3rem);font-weight:600;line-height:1.07;letter-spacing:-.015em}
+.stat-num.grn{color:#34c759}.stat-num.red{color:#ff3b30}
+.stat-lbl{font-size:.75rem;font-weight:400;line-height:1.33;color:var(--text2);margin-top:4px}
+.sec-dark .stat-lbl{color:rgba(255,255,255,.48)}
+/* ═══ CONTENT CONTAINER ═══ */
+.container{max-width:980px;margin:0 auto;width:100%}
+/* ═══ CARDS (Apple style — no border, one shadow or none) ═══ */
+.card-grid{display:flex;flex-direction:column;gap:16px;margin-top:24px}
+.card{padding:28px 32px;background:#fff;transition:transform .3s,box-shadow .3s;animation:fadeUp .5s cubic-bezier(.16,1,.3,1) both}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 .card-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.card-src{font-size:11px;font-weight:600;padding:3px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:.03em}
+.card-src{font-size:.7rem;font-weight:600;padding:3px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.01em}
 .card-src.s{background:#e8f5e9;color:#2e7d32}
 .card-src.d{background:#e3f2fd;color:#1565c0}
 .card-src.p{background:#fce4ec;color:#c62828}
 .card-src.e{background:#f3e5f5;color:#6a1b9a}
-.card-date{font-size:13px;color:var(--text2)}
-.card-score{font-size:12px;font-weight:700;padding:2px 8px;border-radius:6px}
+.card-date{font-size:.75rem;color:var(--text2)}
+.card-score{font-size:.7rem;font-weight:600;padding:2px 8px;border-radius:5px}
 .card-score.c{background:#ffebee;color:#c62828}
 .card-score.h{background:#fff3e0;color:#e65100}
 .card-score.m{background:#e8eaf6;color:#283593}
-.card-title{font-size:16px;font-weight:600;line-height:1.4;margin-bottom:6px}
+.card-title{font-size:1.06rem;font-weight:600;line-height:1.47;letter-spacing:-.023em;margin-bottom:4px}
 .card-title a{color:var(--text);text-decoration:none}
-.card-title a:hover{color:var(--accent2)}
-.card-brief{font-size:14px;color:var(--text2);line-height:1.6;margin-bottom:10px}
+.card-title a:hover{color:var(--blue)}
+.card-brief{font-size:.88rem;line-height:1.47;letter-spacing:-.014em;color:var(--text3);margin-bottom:10px}
 .card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
-.card-tag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:6px;letter-spacing:.03em;text-transform:uppercase}
+.card-tag{font-size:.65rem;font-weight:600;padding:3px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.02em}
 .card-tag.w{background:#f5f5f7;color:var(--text2)}
-.card-tag.a{background:#ffebee;color:var(--accent)}
-.card-tag.i{background:#e3f2fd;color:var(--accent2)}
+.card-tag.a{background:#ffebee;color:#c62828}
+.card-tag.i{background:#e3f2fd;color:var(--blue)}
 .card-tag.n{background:#f3e5f5;color:#7b1fa2}
-.card-why{font-size:13px;color:var(--text2);line-height:1.7;padding:14px 16px;background:rgba(0,113,227,.04);border-left:3px solid var(--accent2);border-radius:0 12px 12px 0}
-.card-why strong{color:var(--accent2)}
-/* Competitors */
-.comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);margin-top:16px}
-.comp-tile{text-decoration:none;display:flex;align-items:center;gap:12px;padding:16px 20px;background:var(--card);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .2s}
-.comp-tile:hover{transform:translateY(-2px)}
-.comp-dot{width:10px;height:10px;border-radius:50%}
-.comp-name{font-size:15px;font-weight:600;color:var(--text)}
-.comp-link{font-size:12px;color:var(--text2);margin-left:auto}
-/* Footer */
-.ft{text-align:center;padding:32px;color:var(--text2);font-size:12px;border-top:1px solid var(--border);margin-top:60px}
-/* Animations */
-@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-/* Empty state */
-.empty{text-align:center;padding:60px 20px;color:var(--text2)}
+.card-why{font-size:.82rem;line-height:1.7;color:var(--text3);padding:16px 20px;background:#f5f5f7;border-left:3px solid var(--blue)}
+.card-why strong{color:var(--blue);font-weight:600}
+/* ═══ TOOLBAR ═══ */
+.toolbar{display:flex;gap:10px;align-items:center;margin-bottom:24px;flex-wrap:wrap}
+.search-wrap{flex:1;min-width:200px}
+.search-wrap input{width:100%;padding:10px 14px;border:3px solid rgba(0,0,0,.04);border-radius:11px;font-size:.88rem;font-family:inherit;background:#fafafc;color:var(--text3);outline:none;transition:border-color .2s}
+.search-wrap input:focus{border-color:var(--blue)}
+.sort-btn{padding:8px 14px;background:#fafafc;border:3px solid rgba(0,0,0,.04);border-radius:11px;cursor:pointer;font-size:.82rem;font-weight:400;color:var(--text3);font-family:inherit;transition:all .15s}
+.sort-btn.active,.sort-btn:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.result-count{font-size:.75rem;color:var(--text2)}
+/* ═══ COMPETITOR TILES ═══ */
+.comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.comp-tile{text-decoration:none;display:flex;align-items:center;gap:10px;padding:16px 20px;background:#fff;transition:transform .3s,box-shadow .3s}
+.comp-tile:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.comp-dot{width:8px;height:8px;border-radius:50%}
+.comp-name{font-size:.88rem;font-weight:600;color:var(--text);letter-spacing:-.014em}
+.comp-link{font-size:.75rem;color:var(--blue);margin-left:auto;letter-spacing:-.01em}
+/* ═══ DARK SECTION CARDS ═══ */
+.sec-dark .card{background:#272729;color:#fff}
+.sec-dark .card:hover{box-shadow:0 4px 24px rgba(0,0,0,.4)}
+.sec-dark .card-title a{color:#fff}
+.sec-dark .card-title a:hover{color:var(--link-dark)}
+.sec-dark .card-brief,.sec-dark .card-why{color:rgba(255,255,255,.64)}
+.sec-dark .card-why{background:rgba(255,255,255,.06);border-left-color:var(--link-dark)}
+.sec-dark .card-why strong{color:var(--link-dark)}
+.sec-dark .card-date{color:rgba(255,255,255,.36)}
+.sec-dark .card-tag.w{background:rgba(255,255,255,.08);color:rgba(255,255,255,.48)}
+.sec-dark .card-tag.a{background:rgba(255,59,48,.15);color:#ff6b6b}
+.sec-dark .card-tag.i{background:rgba(0,113,227,.15);color:var(--link-dark)}
+.sec-dark .sort-btn{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.08);color:rgba(255,255,255,.64)}
+.sec-dark .sort-btn.active,.sec-dark .sort-btn:hover{background:var(--blue);color:#fff}
+.sec-dark .search-wrap input{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.08);color:#fff}
+.sec-dark .comp-tile{background:#272729;color:#fff}
+.sec-dark .comp-tile:hover{box-shadow:0 4px 24px rgba(0,0,0,.4)}
+.sec-dark .comp-name{color:#fff}
+/* ═══ FOOTER ═══ */
+.ft{text-align:center;padding:40px;background:var(--light-bg);font-size:.75rem;color:var(--text2);letter-spacing:-.0075em}
+/* ═══ ANIMATIONS ═══ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.empty{text-align:center;padding:60px 20px;color:var(--text2);font-size:.88rem}
 .empty-icon{font-size:40px;margin-bottom:12px}
-/* Responsive */
-@media(max-width:768px){
-  .hero h1{font-size:32px}
-  .stats{grid-template-columns:repeat(2,1fr)}
+.sec-dark .empty{color:rgba(255,255,255,.36)}
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:834px){
+  .comp-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-strip{gap:2rem}
+}
+@media(max-width:480px){
   .comp-grid{grid-template-columns:1fr}
-  .toolbar{flex-wrap:wrap}
+  .card{padding:20px 24px}
+  .sec{padding:80px 16px}
+  .pill-group{flex-direction:column;align-items:stretch}
 }
 </style>
 </head>
 <body>
-<header class="hdr">
-  <div class="hdr-l"><span class="hdr-logo">ABB</span><span class="hdr-title">Intelligence</span></div>
-  <div class="hdr-meta" id="clock">--</div>
-</header>
-<div class="container">
-  <section class="hero">
-    <div class="hero-badge">● Active Monitoring</div>
-    <h1>Industrial <em>Intelligence</em></h1>
-    <p>Real competitive signals from verifiable sources. Designed for strategic decision-making.</p>
-  </section>
-  <div class="stats">
-    <div class="stat"><div class="stat-num grn">4</div><div class="stat-lbl">Sources</div></div>
-    <div class="stat"><div class="stat-num" id="stat-total">24</div><div class="stat-lbl">Signals</div></div>
-    <div class="stat"><div class="stat-num red" id="stat-crit">3</div><div class="stat-lbl">Critical</div></div>
-    <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">Newsrooms</div></div>
-  </div>
-  <div class="toolbar">
-    <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search signals..."></div>
-    <button class="sort-btn active" data-sort="date" onclick="setSort('date')">Recent</button>
-    <button class="sort-btn" data-sort="score" onclick="setSort('score')">Threat</button>
-    <span class="result-count" id="resultCount"></span>
-  </div>
-  <div class="sec-title">Intelligence Feed <span class="sec-sub" id="sortLabel">sorted by date</span></div>
-  <div class="card-grid" id="feed"><div class="empty"><div class="empty-icon">⏳</div>Loading intelligence data…</div></div>
-  <div class="sec-title" style="margin-top:48px">Competitor Newsrooms</div>
-  <div class="comp-grid" id="compGrid"></div>
-</div>
-<footer class="ft">ABB Market Intelligence · Dynamic data from signals.json · Cron refreshed daily</footer>
-<script>
-// ═══════════ CLOCK ═══════════
-(function t(){var d=new Date(),p=function(n){return n<10?'0'+n:n};document.getElementById('clock').textContent=d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes());setTimeout(t,6e4)})();
 
-// ═══════════ DATA ═══════════
+<!-- ═══ NAVIGATION ═══ -->
+<nav class="nav">
+  <span class="nav-logo">ABB</span>
+  <span class="nav-title">Intelligence</span>
+  <span class="nav-status" id="clock">--</span>
+</nav>
+
+<!-- ═══ HERO — Dark Section ═══ -->
+<section class="sec sec-dark sec-hero">
+  <div class="container">
+    <p class="caption" style="color:rgba(255,255,255,.48);margin-bottom:12px">Competitive Intelligence</p>
+    <h1 class="h1">Industrial Automation<br>Radar</h1>
+    <p class="sub">Real signals from verifiable sources.<br>Every threat quantified. Every move tracked.</p>
+    <div class="pill-group">
+      <a href="#feed-section" class="pill pill-fill">View signals <span class="chevron">›</span></a>
+      <a href="#comp-section" class="pill pill-outline-light">Newsrooms <span class="chevron">›</span></a>
+    </div>
+    <div class="stats-strip">
+      <div class="stat-item"><div class="stat-num grn">4</div><div class="stat-lbl">Sources</div></div>
+      <div class="stat-item"><div class="stat-num" id="stat-total" style="color:#fff">24</div><div class="stat-lbl">Signals</div></div>
+      <div class="stat-item"><div class="stat-num red" id="stat-crit">3</div><div class="stat-lbl">Critical</div></div>
+      <div class="stat-item"><div class="stat-num" style="color:#fff">6</div><div class="stat-lbl">Newsrooms</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INTELLIGENCE FEED — Light Section ═══ -->
+<section class="sec sec-light sec-body" id="feed-section">
+  <div class="container">
+    <h2 class="h2">Intelligence <span style="color:var(--blue)">Feed</span></h2>
+    <p class="body" style="margin-top:8px;margin-bottom:24px">Updated daily from press.siemens.com, drivesncontrols.com, powerelectronicsnews.com, and engineering.com.</p>
+    <div class="toolbar">
+      <div class="search-wrap"><input type="text" id="searchInput" placeholder="Search signals..."></div>
+      <button class="sort-btn active" data-sort="date" onclick="setSort('date')">Recent</button>
+      <button class="sort-btn" data-sort="score" onclick="setSort('score')">Threat</button>
+      <span class="result-count" id="resultCount"></span>
+    </div>
+    <div class="card-grid" id="feed"><div class="empty"><div class="empty-icon">⏳</div>Loading intelligence data…</div></div>
+  </div>
+</section>
+
+<!-- ═══ COMPETITORS — Dark Section ═══ -->
+<section class="sec sec-dark sec-body" id="comp-section">
+  <div class="container">
+    <h2 class="h2">Competitor <span style="color:var(--link-dark)">Newsrooms</span></h2>
+    <p class="body" style="color:rgba(255,255,255,.64);margin-top:8px;margin-bottom:24px">Direct links to official press rooms of all monitored competitors.</p>
+    <div class="comp-grid" id="compGrid"></div>
+  </div>
+</section>
+
+<footer class="ft">ABB Market Intelligence · Dynamic data from signals.json · Cron refreshed daily</footer>
+
+<script>
+// ═══════ CLOCK ═══════
+(function t(){var d=new Date(),p=function(n){return n<10?'0'+n:n};document.getElementById('clock').textContent=d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate());setTimeout(t,6e4)})();
+
+// ═══════ DATA ═══════
 var SIGNALS=[],COMPS=[],searchQuery='',sortMode='date';
 
 fetch('signals.json?t='+Date.now())
@@ -181,21 +222,19 @@ function render(){
   if(searchQuery){var q=searchQuery.toLowerCase();items=items.filter(function(s){return s.title.toLowerCase().indexOf(q)>-1||s.brief.toLowerCase().indexOf(q)>-1||s.insight.toLowerCase().indexOf(q)>-1||s.s.toLowerCase().indexOf(q)>-1||s.tags.some(function(t){return t.l.toLowerCase().indexOf(q)>-1})})}
   if(sortMode==='score')items.sort(function(a,b){return b.score-a.score});
   else items.sort(function(a,b){return a.day-b.day});
-  document.getElementById('sortLabel').textContent=sortMode==='score'?'sorted by threat':'sorted by date';
   document.getElementById('resultCount').textContent=items.length+' / '+SIGNALS.length;
   var h='';if(!items.length){h='<div class="empty"><div class="empty-icon">🔍</div>No signals match</div>'}
   items.forEach(function(item,i){
     var lv=item.score>=85?'c':item.score>=75?'h':'m';
     h+='<div class="card" style="animation-delay:'+(i*.03)+'s"><div class="card-head"><span class="card-src '+item.t+'">'+item.s+'</span><span class="card-date">'+item.d+'</span><span class="card-score '+lv+'">'+item.score+'</span></div>';
-    if(item.surl)h+='<div class="card-title"><a href="'+item.surl+'" target="_blank">'+item.title+'</a></div>';
-    else h+='<div class="card-title">'+item.title+'</div>';
+    h+=item.surl?'<div class="card-title"><a href="'+item.surl+'" target="_blank">'+item.title+'</a></div>':'<div class="card-title">'+item.title+'</div>';
     h+='<div class="card-brief">'+item.brief+'</div><div class="card-tags">';
     item.tags.forEach(function(t){h+='<span class="card-tag '+t.c+'">'+t.l+'</span>'});
     h+='</div><div class="card-why"><strong>▸ Insight</strong> '+item.insight+'</div></div>';
   });
   document.getElementById('feed').innerHTML=h;
 }
-function renderComps(){var h='';COMPS.forEach(function(c){h+='<a class="comp-tile" href="'+c.u+'" target="_blank"><div class="comp-dot" style="background:'+c.c+'"></div><div class="comp-name">'+c.n+'</div><div class="comp-link">Newsroom ↗</div></a>'});document.getElementById('compGrid').innerHTML=h}
+function renderComps(){var h='';COMPS.forEach(function(c){h+='<a class="comp-tile" href="'+c.u+'" target="_blank"><div class="comp-dot" style="background:'+c.c+'"></div><div class="comp-name">'+c.n+'</div><div class="comp-link">Newsroom <span style="font-size:1.1em">›</span></div></a>'});document.getElementById('compGrid').innerHTML=h}
 function setSort(m){sortMode=m;document.querySelectorAll('.sort-btn').forEach(function(b){b.classList.toggle('active',b.dataset.sort===m)});render()}
 document.getElementById('searchInput').addEventListener('input',function(){searchQuery=this.value.trim();render()});
 </script>
