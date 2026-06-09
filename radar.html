@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ABB · Competitive Radar — 楼丰川</title>
+
+<!-- GSAP Core + ScrollTrigger (官方 CDN) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+/* ── TOKENS ───────────────────────────────────────────────────── */
+:root{
+  --red:#d42020; --red-glow:rgba(212,32,32,.18);
+  --bg:#f1f3f8; --surface:#fff; --surface2:#f6f8fc;
+  --border:#e2e6ef; --border2:#cdd2df;
+  --ink:#0e1420; --ink2:#475261; --ink3:#8896b0;
+  --green:#18a34a; --green-bg:rgba(24,163,74,.1);
+  --amber:#c17d00; --amber-bg:rgba(193,125,0,.1);
+  --blue:#1a6bbf;  --blue-bg:rgba(26,107,191,.1);
+  --purple:#6d28d9;--purple-bg:rgba(109,40,217,.1);
+  --pink:#be185d;  --pink-bg:rgba(190,24,93,.1);
+  --ease:cubic-bezier(0.16,1,0.3,1);
+  --sh1:0 1px 3px rgba(14,20,32,.05),0 2px 6px rgba(14,20,32,.04);
+  --sh2:0 4px 16px rgba(14,20,32,.08),0 2px 8px rgba(14,20,32,.04);
+  --sh3:0 12px 40px rgba(14,20,32,.12),0 4px 12px rgba(14,20,32,.06);
+  --r:12px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+  background:var(--bg);color:var(--ink);
+  line-height:1.6;font-size:.9rem;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── NAV ──────────────────────────────────────────────────────── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  height:52px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 2.5rem;
+  background:rgba(8,13,20,.9);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  opacity:0;/* GSAP animates in */
+}
+.nav-l{display:flex;align-items:center;gap:10px}
+.nav-badge{
+  background:var(--red);color:#fff;
+  font-size:.72rem;font-weight:900;
+  padding:3px 10px;border-radius:3px;letter-spacing:.5px;
+}
+.nav-name{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.5)}
+.nav-r{display:flex;align-items:center;gap:14px}
+.live-pill{
+  display:flex;align-items:center;gap:5px;
+  font-size:.67rem;font-weight:700;color:var(--green);
+}
+.live-dot{
+  width:5px;height:5px;border-radius:50%;background:var(--green);
+  animation:pulse 2.2s cubic-bezier(.45,0,.55,1) infinite;
+}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(24,163,74,.5)}50%{box-shadow:0 0 0 5px rgba(24,163,74,0)}}
+.nav-clock{font-size:.67rem;color:rgba(255,255,255,.28);font-variant-numeric:tabular-nums}
+
+/* ── HERO ─────────────────────────────────────────────────────── */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  background:#080d13;
+  position:relative;overflow:hidden;
+  padding:5rem 2rem 4rem;
+  text-align:center;
+}
+/* Dot grid */
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:32px 32px;pointer-events:none;
+}
+/* Red radial glow - top center */
+.hero::after{
+  content:'';position:absolute;
+  top:-120px;left:50%;transform:translateX(-50%);
+  width:600px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,var(--red-glow) 0%,transparent 65%);
+  pointer-events:none;
+}
+/* Floating particles */
+.particle{
+  position:absolute;border-radius:50%;
+  background:var(--red);pointer-events:none;
+  opacity:0.12;
+}
+.hero-inner{position:relative;z-index:6;max-width:760px;margin:0 auto}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.72rem;font-weight:500;letter-spacing:.1px;
+  color:rgba(255,255,255,.35);
+  margin-bottom:1.75rem;
+  opacity:0;/* GSAP */
+}
+.eyebrow-dot{
+  width:5px;height:5px;border-radius:50%;background:var(--red);
+  animation:pulse 2.2s cubic-bezier(.45,0,.55,1) infinite;
+}
+
+/* Line-mask reveal pattern */
+.line-wrap{overflow:hidden;display:block}
+.line-inner{display:block}
+.hero-title{
+  font-size:clamp(3.2rem,9vw,7rem);
+  font-weight:900;
+  letter-spacing:-.05em;
+  line-height:.92;
+  margin-bottom:1.5rem;
+}
+.hero-title .l1{color:#fff}
+.hero-title .l2{color:var(--red);display:block}
+
+.hero-sub{
+  font-size:clamp(.9rem,1.8vw,1.05rem);
+  color:rgba(255,255,255,.38);
+  line-height:1.75;
+  max-width:480px;
+  margin:0 auto 2.5rem;
+  text-wrap:pretty;
+  opacity:0;/* GSAP */
+}
+
+/* Stat counters */
+.hero-stats{
+  display:flex;justify-content:center;gap:0;
+  margin-bottom:2.5rem;
+}
+.hero-stat{
+  padding:.875rem 2rem;
+  border-right:1px solid rgba(255,255,255,.08);
+  opacity:0;/* GSAP */
+}
+.hero-stat:last-child{border-right:none}
+.stat-n{
+  font-size:2.2rem;font-weight:900;
+  letter-spacing:-.05em;line-height:1;
+  color:#fff;display:block;margin-bottom:3px;
+}
+.stat-n.red{color:var(--red)}
+.stat-n.grn{color:var(--green)}
+.stat-l{font-size:.67rem;color:rgba(255,255,255,.3);font-weight:500}
+
+/* CTA */
+.hero-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:.75rem 1.75rem;
+  background:var(--red);color:#fff;
+  font-size:.85rem;font-weight:700;
+  border-radius:8px;text-decoration:none;
+  transition:background .2s var(--ease),transform .2s var(--ease);
+  opacity:0;/* GSAP */
+}
+.hero-cta:hover{background:#b81b1b;transform:translateY(-2px)}
+.hero-cta-arrow{font-size:1rem;transition:transform .2s var(--ease)}
+.hero-cta:hover .hero-cta-arrow{transform:translateY(3px)}
+
+/* Scroll indicator */
+.hero-scroll{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:rgba(255,255,255,.2);font-size:.65rem;letter-spacing:.3px;
+  opacity:0;/* GSAP */
+}
+.scroll-line{
+  width:1px;height:32px;background:linear-gradient(to bottom,rgba(255,255,255,.15),transparent);
+  animation:scrollLine 1.8s ease-in-out infinite;
+}
+@keyframes scrollLine{0%,100%{transform:scaleY(1);opacity:.4}50%{transform:scaleY(.5);opacity:.8}}
+
+/* ── SECTION SHARED ───────────────────────────────────────────── */
+.section{padding:5rem 2rem}
+.section-inner{max-width:960px;margin:0 auto;position:relative;z-index:6}
+.sec-eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.68rem;font-weight:700;letter-spacing:.5px;
+  color:var(--red);text-transform:uppercase;
+  margin-bottom:.875rem;
+}
+.sec-eyebrow::before{
+  content:'';width:16px;height:1.5px;background:var(--red);flex-shrink:0;
+}
+.sec-h2{
+  font-size:clamp(1.75rem,3.5vw,2.5rem);
+  font-weight:800;letter-spacing:-.04em;line-height:1.15;
+  margin-bottom:.75rem;text-wrap:balance;
+}
+.sec-desc{
+  font-size:.95rem;color:var(--ink2);line-height:1.75;
+  max-width:520px;text-wrap:pretty;
+}
+
+
+/* ── DASHBOARD ────────────────────────────────────────────────── */
+.dash-section{background:var(--bg)}
+.dash-toolbar{
+  display:flex;align-items:center;gap:6px;
+  padding:6px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  box-shadow:var(--sh1);
+  margin-bottom:1.5rem;
+}
+.dash-search{flex:1;position:relative}
+.dash-search input{
+  width:100%;padding:8px 12px 8px 36px;
+  border:none;background:transparent;
+  font-size:.84rem;font-family:inherit;
+  color:var(--ink);outline:none;
+}
+.dash-search input::placeholder{color:var(--ink3)}
+.dash-search::before{
+  content:'⌕';position:absolute;
+  left:11px;top:50%;transform:translateY(-50%);
+  font-size:.95rem;color:var(--ink3);line-height:1;
+}
+.dash-sep{width:1px;height:22px;background:var(--border)}
+.sort-btn{
+  padding:7px 14px;border:none;border-radius:8px;
+  background:transparent;color:var(--ink2);
+  font-size:.76rem;font-weight:500;cursor:pointer;
+  font-family:inherit;transition:background .15s var(--ease);
+}
+.sort-btn:hover{background:var(--bg)}
+.sort-btn.active{background:var(--ink);color:#fff}
+.dash-count{font-size:.68rem;color:var(--ink3);padding:0 6px;font-variant-numeric:tabular-nums}
+
+/* Priority groups */
+.pgroup{margin-bottom:2rem}
+.pgroup-hd{
+  display:flex;align-items:center;gap:8px;
+  padding-bottom:.5rem;border-bottom:1px solid var(--border);margin-bottom:4px;
+}
+.pgroup-dot{width:7px;height:7px;border-radius:50%}
+.pgroup-label{font-size:.7rem;font-weight:700;letter-spacing:.3px;color:var(--ink3);text-transform:uppercase}
+.pgroup-count{font-size:.67rem;color:var(--ink3)}
+
+/* Signal rows */
+.signal{
+  padding:.875rem 0;border-bottom:1px solid var(--border);
+  transition:background .2s var(--ease);
+}
+.pgroup:last-child .signal:last-child{border-bottom:none}
+.signal:hover{
+  background:var(--surface2);
+  margin:0 -.75rem;padding:.875rem .75rem;
+  border-radius:8px;border-bottom-color:transparent;
+}
+.sig-hd{display:flex;align-items:center;gap:8px;margin-bottom:5px;flex-wrap:wrap}
+.sig-src{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:.67rem;font-weight:700;padding:2px 7px;border-radius:5px;
+}
+.sig-src::before{content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.sig-src.s{background:var(--blue-bg);color:#1a5a9e} .sig-src.s::before{background:var(--blue)}
+.sig-src.d{background:var(--amber-bg);color:#9a5e00} .sig-src.d::before{background:var(--amber)}
+.sig-src.p{background:var(--purple-bg);color:#5b21b6} .sig-src.p::before{background:var(--purple)}
+.sig-src.e{background:var(--pink-bg);color:#9d174d} .sig-src.e::before{background:var(--pink)}
+.sig-date{font-size:.68rem;color:var(--ink3)}
+.sig-score{
+  margin-left:auto;font-size:.66rem;font-weight:800;
+  padding:2px 7px;border-radius:5px;
+}
+.sig-score.c{color:var(--red);background:rgba(212,32,32,.1)}
+.sig-score.h{color:var(--amber);background:var(--amber-bg)}
+.sig-score.m{color:var(--ink3);background:var(--bg)}
+.sig-title{font-size:.9rem;font-weight:600;line-height:1.4;margin-bottom:4px;text-wrap:pretty}
+.sig-title a{color:var(--ink);text-decoration:none;transition:color .15s}
+.sig-title a:hover{color:var(--blue)}
+.sig-brief{font-size:.79rem;color:var(--ink2);line-height:1.65;margin-bottom:6px}
+.sig-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:6px}
+.sig-tag{font-size:.63rem;font-weight:600;padding:2px 6px;border-radius:4px}
+.sig-tag.a{color:var(--red);background:rgba(212,32,32,.1)}
+.sig-tag.w{color:var(--amber);background:var(--amber-bg)}
+.sig-tag.i{color:var(--blue);background:var(--blue-bg)}
+.sig-tag.n{color:var(--ink3);background:var(--bg)}
+.sig-insight{
+  font-size:.74rem;color:var(--ink2);line-height:1.65;
+  display:flex;gap:6px;
+  padding-top:6px;border-top:1px solid var(--border);
+}
+.sig-insight::before{content:'▸';color:var(--red);flex-shrink:0;font-size:.68rem;padding-top:.08em}
+
+/* Empty + loading */
+.empty{text-align:center;padding:3rem;color:var(--ink3)}
+.empty-icon{font-size:1.5rem;margin-bottom:.5rem;opacity:.5}
+
+/* ── COMPETITOR STRIP ─────────────────────────────────────────── */
+.comp-section{
+  background:var(--surface);
+  padding:3rem 2rem;
+  border-top:1px solid var(--border);
+}
+.comp-inner{max-width:960px;margin:0 auto;position:relative;z-index:6}
+.comp-label{
+  font-size:.68rem;font-weight:700;letter-spacing:.4px;
+  color:var(--ink3);text-transform:uppercase;margin-bottom:.875rem;
+}
+.comp-chips{display:flex;flex-wrap:wrap;gap:6px}
+.comp-chip{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:5px 12px;
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:8px;text-decoration:none;
+  color:var(--ink2);font-size:.76rem;font-weight:500;
+  box-shadow:var(--sh1);
+  transition:box-shadow .2s var(--ease),border-color .15s,transform .2s var(--ease);
+}
+.comp-chip:hover{border-color:var(--border2);box-shadow:var(--sh2);transform:translateY(-1px);color:var(--ink)}
+.comp-dot{width:7px;height:7px;border-radius:50%}
+.comp-arr{font-size:.62rem;color:var(--ink3);margin-left:2px}
+
+/* ── FOOTER ───────────────────────────────────────────────────── */
+.footer{
+  background:#080d13;
+  padding:2rem 2.5rem;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.footer-inner{
+  max-width:960px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;
+  position:relative;z-index:6;
+}
+.footer-l{display:flex;align-items:center;gap:8px;font-size:.72rem;color:rgba(255,255,255,.3)}
+.footer-badge{
+  background:var(--red);color:#fff;
+  font-size:.62rem;font-weight:900;
+  padding:2px 8px;border-radius:3px;letter-spacing:.4px;
+}
+.footer-r{font-size:.67rem;color:rgba(255,255,255,.18)}
+
+/* ── ANIMATIONS ───────────────────────────────────────────────── */
+@keyframes fade-up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── ROBOT ARM ────────────────────────────────────────────────── */
+#robotArm{
+  position:fixed;inset:0;
+  width:100vw;height:100vh;
+  pointer-events:none;
+  z-index:5;
+  opacity:0.52;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────────── */
+@media(max-width:768px){
+  .nav{padding:0 1.25rem}
+  .hero{padding:5rem 1.25rem 4rem}
+  .hero-stats{flex-wrap:wrap;justify-content:center;gap:0}
+  .hero-stat{min-width:50%;border-bottom:1px solid rgba(255,255,255,.06)}
+  .section{padding:3.5rem 1.25rem}
+  .cap-bento{grid-template-columns:1fr;grid-template-rows:auto}
+  .cap-card.featured{grid-row:auto}
+  .dash-toolbar{flex-wrap:wrap}
+  .dash-sep{display:none}
+  .footer-inner{flex-direction:column;gap:6px;text-align:center}
+}
+@media(max-width:480px){
+  .hero-stats{flex-direction:column;align-items:center}
+  .hero-stat{width:100%;border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}
+}
+</style>
+</head>
+<body>
+
+<!-- ── ABB INDUSTRIAL ROBOT ARM (fixed, visible across all sections) ── -->
+<svg id="robotArm" aria-hidden="true" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <!-- Arm body: blue-steel -->
+  <linearGradient id="gBody" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#3e5470"/>
+    <stop offset="45%"  stop-color="#2c4260"/>
+    <stop offset="100%"  stop-color="#1a2a42"/>
+  </linearGradient>
+  <!-- Arm body side face (slightly lighter) -->
+  <linearGradient id="gSide" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#304862"/>
+    <stop offset="100%" stop-color="#1a2a3e"/>
+  </linearGradient>
+  <!-- Top-edge highlight (cool metallic sheen) -->
+  <linearGradient id="gEdge" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="rgba(160,200,255,0.22)"/>
+    <stop offset="100%" stop-color="rgba(100,150,220,0.03)"/>
+  </linearGradient>
+  <!-- Joint disc radial gradient -->
+  <radialGradient id="gJoint" cx="35%" cy="32%" r="65%">
+    <stop offset="0%"   stop-color="#3e5878"/>
+    <stop offset="60%"  stop-color="#26364e"/>
+    <stop offset="100%" stop-color="#141e2e"/>
+  </radialGradient>
+  <!-- Base column gradient -->
+  <linearGradient id="gBase" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%"   stop-color="#3a4e6a"/>
+    <stop offset="40%"  stop-color="#2a3c58"/>
+    <stop offset="100%" stop-color="#182030"/>
+  </linearGradient>
+  <!-- Red glow for joints -->
+  <filter id="fRed" x="-120%" y="-120%" width="340%" height="340%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <!-- Subtle overall glow -->
+  <filter id="fArm" x="-4%" y="-4%" width="108%" height="108%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="1.2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+
+<!-- ═══════════════════════════════════════════════════════
+     BASE + J1 ROTATION ASSEMBLY  (fixed at bottom-left)
+     ═══════════════════════════════════════════════════════ -->
+<g transform="translate(118,874)">
+  <!-- Floor shadow -->
+  <ellipse cx="2" cy="5" rx="72" ry="10" fill="rgba(0,0,0,0.5)"/>
+  <!-- Base plate (wide footing) -->
+  <rect x="-60" y="-16" width="120" height="16" rx="4" fill="url(#gBase)"/>
+  <rect x="-60" y="-16" width="120" height="16" rx="4" fill="none" stroke="rgba(140,180,230,0.08)" stroke-width="1.2"/>
+  <!-- Mounting bolt holes in base plate -->
+  <circle cx="-46" cy="-8" r="3.5" fill="#0d1520"/>
+  <circle cx="-46" cy="-8" r="2"   fill="rgba(140,180,230,0.15)"/>
+  <circle cx="-22" cy="-8" r="3.5" fill="#0d1520"/>
+  <circle cx="-22" cy="-8" r="2"   fill="rgba(140,180,230,0.15)"/>
+  <circle cx="22"  cy="-8" r="3.5" fill="#0d1520"/>
+  <circle cx="22"  cy="-8" r="2"   fill="rgba(140,180,230,0.15)"/>
+  <circle cx="46"  cy="-8" r="3.5" fill="#0d1520"/>
+  <circle cx="46"  cy="-8" r="2"   fill="rgba(140,180,230,0.15)"/>
+
+  <!-- Column body -->
+  <rect x="-32" y="-108" width="64" height="92" rx="5" fill="url(#gBase)"/>
+  <!-- Column left-edge highlight -->
+  <rect x="-32" y="-108" width="5"  height="92" rx="5" fill="url(#gEdge)"/>
+  <!-- Column right shadow -->
+  <rect x="27"  y="-108" width="5"  height="92" rx="5" fill="rgba(0,0,0,0.25)"/>
+  <!-- Column stroke outline -->
+  <rect x="-32" y="-108" width="64" height="92" rx="5" fill="none" stroke="rgba(140,180,230,0.07)" stroke-width="1.2"/>
+
+  <!-- ABB red power band -->
+  <rect x="-32" y="-68"  width="64" height="7"  rx="1.5" fill="#d42020" opacity="0.9"/>
+  <!-- Secondary status band -->
+  <rect x="-32" y="-35"  width="64" height="3.5" rx="1" fill="#d42020" opacity="0.4"/>
+  <!-- Status LEDs -->
+  <circle cx="-16" cy="-55" r="3" fill="#d42020" filter="url(#fRed)" opacity="0.9"/>
+  <circle cx="-4"  cy="-55" r="2" fill="rgba(40,220,120,0.8)"/>
+  <circle cx="6"   cy="-55" r="2" fill="rgba(40,220,120,0.6)"/>
+
+  <!-- ABB nameplate -->
+  <rect x="-20" y="-122" width="40" height="17" rx="4" fill="#d42020" opacity="0.95"/>
+  <text x="0" y="-110.5" text-anchor="middle" font-size="9" font-weight="900"
+        fill="#fff" font-family="Arial,sans-serif" letter-spacing="1.5">ABB</text>
+
+  <!-- J1 rotation disc (top of column, the base swivel) -->
+  <ellipse cx="0" cy="-108" rx="38" ry="10"   fill="#1c2a3f"/>
+  <ellipse cx="0" cy="-108" rx="32" ry="7.5"  fill="#253548"/>
+  <ellipse cx="0" cy="-108" rx="32" ry="7.5"  fill="none" stroke="#d42020" stroke-width="2.5" opacity="0.7"/>
+  <!-- J1 bolt ring (8 bolts) -->
+  <circle cx="24"  cy="-108" r="2.5" fill="#0c141e" stroke="rgba(140,180,230,0.2)" stroke-width="1"/>
+  <circle cx="17"  cy="-101" r="2.5" fill="#0c141e" stroke="rgba(140,180,230,0.2)" stroke-width="1"/>
+  <circle cx="0"   cy="-99"  r="2.5" fill="#0c141e" stroke="rgba(140,180,230,0.2)" stroke-width="1"/>
+  <circle cx="-17" cy="-101" r="2.5" fill="#0c141e" stroke="rgba(140,180,230,0.2)" stroke-width="1"/>
+  <circle cx="-24" cy="-108" r="2.5" fill="#0c141e" stroke="rgba(140,180,230,0.2)" stroke-width="1"/>
+  <!-- Cable conduit up the back of column -->
+  <rect x="26" y="-102" width="7" height="82" rx="2.5" fill="#0c1420" opacity="0.9"/>
+  <rect x="27" y="-95"  width="5" height="4"  rx="1" fill="#d42020" opacity="0.5"/>
+  <rect x="27" cy="-75" width="5" height="4"  rx="1" fill="#d42020" opacity="0.5"/>
+  <rect x="27" y="-75"  width="5" height="4"  rx="1" fill="#d42020" opacity="0.5"/>
+  <rect x="27" y="-50"  width="5" height="4"  rx="1" fill="#d42020" opacity="0.5"/>
+</g>
+
+<!-- ═══════════════════════════════════════════════════════
+     J2 SHOULDER HOUSING  (fixed, mounted on J1 disc)
+     This is the large housing characteristic of ABB robots
+     ═══════════════════════════════════════════════════════ -->
+<g transform="translate(118,766)">
+  <!-- Shoulder housing block (wide, tall box) -->
+  <rect x="-28" y="-50" width="56" height="100" rx="9" fill="url(#gBody)"/>
+  <!-- Housing left highlight -->
+  <rect x="-28" y="-50" width="6"  height="100" rx="9" fill="url(#gEdge)" opacity="0.8"/>
+  <!-- Housing stroke -->
+  <rect x="-28" y="-50" width="56" height="100" rx="9" fill="none" stroke="rgba(140,180,230,0.08)" stroke-width="1.2"/>
+  <!-- Ventilation slot group -->
+  <rect x="-16" y="-35" width="32" height="3" rx="1.5" fill="rgba(0,0,0,0.4)"/>
+  <rect x="-16" y="-28" width="32" height="3" rx="1.5" fill="rgba(0,0,0,0.4)"/>
+  <rect x="-16" y="-21" width="32" height="3" rx="1.5" fill="rgba(0,0,0,0.4)"/>
+
+  <!-- J2 AXIS DISC (the round side cap — the pivot itself) -->
+  <!-- Red glow behind disc -->
+  <circle cx="0" cy="0" r="34" fill="#d42020" opacity="0.2" filter="url(#fRed)"/>
+  <!-- Outer ring -->
+  <circle cx="0" cy="0" r="34" fill="none" stroke="#d42020" stroke-width="5" opacity="0.85"/>
+  <!-- Disc body -->
+  <circle cx="0" cy="0" r="30" fill="url(#gJoint)"/>
+  <!-- Inner detail ring -->
+  <circle cx="0" cy="0" r="22" fill="none" stroke="rgba(140,180,230,0.12)" stroke-width="2"/>
+  <!-- Bolt holes (6 bolts at r=25) -->
+  <circle cx="25"  cy="0"   r="3" fill="#0a1018" stroke="rgba(140,180,230,0.18)" stroke-width="1"/>
+  <circle cx="12.5" cy="-21.7" r="3" fill="#0a1018" stroke="rgba(140,180,230,0.18)" stroke-width="1"/>
+  <circle cx="-12.5" cy="-21.7" r="3" fill="#0a1018" stroke="rgba(140,180,230,0.18)" stroke-width="1"/>
+  <circle cx="-25" cy="0"   r="3" fill="#0a1018" stroke="rgba(140,180,230,0.18)" stroke-width="1"/>
+  <circle cx="-12.5" cy="21.7" r="3" fill="#0a1018" stroke="rgba(140,180,230,0.18)" stroke-width="1"/>
+  <circle cx="12.5" cy="21.7"  r="3" fill="#0a1018" stroke="rgba(140,180,230,0.18)" stroke-width="1"/>
+  <!-- Center pip + highlight -->
+  <circle cx="0" cy="0" r="8" fill="#d42020" opacity="0.75"/>
+  <circle cx="0" cy="0" r="4" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="-8" cy="-8" r="4" fill="rgba(255,255,255,0.10)"/>
+</g>
+
+<!-- ═══════════════════════════════════════════════════════
+     ARTICULATED ARM  (IK-controlled via JS)
+     Pivot = J2 shoulder at (118, 766)
+     L1 = 306 (J2→J3 lower arm)
+     L2 = 235 (J3→J5 upper arm)
+     ═══════════════════════════════════════════════════════ -->
+<g transform="translate(118,766)" filter="url(#fArm)">
+
+  <!-- ── LOWER ARM ASSEMBLY (rotates at J2) ── -->
+  <g id="lowerArmRot" transform="rotate(-38)">
+
+    <!-- Main arm body: trapezoid wider at J2, tapering to J3 -->
+    <polygon points="0,-27 292,-17 298,0 292,17 0,27" fill="url(#gBody)"/>
+    <!-- Top-face highlight strip -->
+    <polygon points="0,-27 292,-17 292,-13 0,-21" fill="url(#gEdge)"/>
+    <!-- Bottom shadow strip -->
+    <polygon points="0,22 292,15 292,18 0,27" fill="rgba(0,0,0,0.3)"/>
+    <!-- Arm stroke -->
+    <polygon points="0,-27 292,-17 298,0 292,17 0,27" fill="none" stroke="rgba(140,180,230,0.07)" stroke-width="1.2"/>
+
+    <!-- ABB red accent stripe along the body -->
+    <rect x="24"  y="-9" width="260" height="5.5" rx="2.5" fill="#d42020" opacity="0.7"/>
+    <!-- Secondary accent stripe (bottom) -->
+    <rect x="24"  y="15" width="260" height="3"   rx="1.5" fill="rgba(140,180,230,0.12)"/>
+
+    <!-- Cable tray along bottom of arm -->
+    <rect x="35"  y="18" width="245" height="7"   rx="3"   fill="#0e1825" opacity="0.8"/>
+    <rect x="45"  y="19" width="5"   height="5"   rx="1" fill="#d42020" opacity="0.45"/>
+    <rect x="100" y="19" width="5"   height="5"   rx="1" fill="#d42020" opacity="0.45"/>
+    <rect x="155" y="19" width="5"   height="5"   rx="1" fill="#d42020" opacity="0.45"/>
+    <rect x="210" y="19" width="5"   height="5"   rx="1" fill="#d42020" opacity="0.45"/>
+
+    <!-- ── COUNTERBALANCE SPRING CYLINDER  ──
+         The most distinctive ABB feature: a gas spring cylinder
+         runs from the J2 housing (root) to ~⅓ along the lower arm.
+         In side view it appears as a cigar-shaped housing below/behind the arm.  -->
+    <polygon points="-8,27 -18,62 -8,68 108,54 112,27" fill="url(#gSide)"/>
+    <!-- Cylinder highlight -->
+    <polygon points="-8,27 -18,62 -14,62 -4,27"        fill="url(#gEdge)" opacity="0.6"/>
+    <!-- Cylinder stroke -->
+    <polygon points="-8,27 -18,62 -8,68 108,54 112,27" fill="none" stroke="rgba(140,180,230,0.08)" stroke-width="1"/>
+    <!-- Spring housing detail lines -->
+    <line x1="8"  y1="31" x2="-4"  y2="64" stroke="rgba(140,180,230,0.10)" stroke-width="1.5"/>
+    <line x1="35" y1="29" x2="28"  y2="58" stroke="rgba(140,180,230,0.10)" stroke-width="1.5"/>
+    <line x1="65" y1="28" x2="62"  y2="55" stroke="rgba(140,180,230,0.10)" stroke-width="1.5"/>
+    <!-- Cylinder end cap -->
+    <ellipse cx="-13" cy="65" rx="7" ry="4" fill="#1c2840"/>
+    <ellipse cx="-13" cy="65" rx="5" ry="2.5" fill="#d42020" opacity="0.5"/>
+
+    <!-- ── J3 ELBOW JOINT ── -->
+    <g transform="translate(298, 0)">
+      <!-- Red glow halo -->
+      <circle cx="0" cy="0" r="32" fill="#d42020" opacity="0.18" filter="url(#fRed)"/>
+      <!-- Outer red ring -->
+      <circle cx="0" cy="0" r="32" fill="none" stroke="#d42020" stroke-width="5" opacity="0.88"/>
+      <!-- Joint disc body -->
+      <circle cx="0" cy="0" r="27" fill="url(#gJoint)"/>
+      <!-- Inner detail ring -->
+      <circle cx="0" cy="0" r="19" fill="none" stroke="rgba(140,180,230,0.14)" stroke-width="2"/>
+      <!-- 6 bolt holes at r=22 -->
+      <circle cx="22"   cy="0"    r="3" fill="#0a1018" stroke="rgba(140,180,230,0.2)" stroke-width="1"/>
+      <circle cx="11"   cy="-19"  r="3" fill="#0a1018" stroke="rgba(140,180,230,0.2)" stroke-width="1"/>
+      <circle cx="-11"  cy="-19"  r="3" fill="#0a1018" stroke="rgba(140,180,230,0.2)" stroke-width="1"/>
+      <circle cx="-22"  cy="0"    r="3" fill="#0a1018" stroke="rgba(140,180,230,0.2)" stroke-width="1"/>
+      <circle cx="-11"  cy="19"   r="3" fill="#0a1018" stroke="rgba(140,180,230,0.2)" stroke-width="1"/>
+      <circle cx="11"   cy="19"   r="3" fill="#0a1018" stroke="rgba(140,180,230,0.2)" stroke-width="1"/>
+      <!-- Center -->
+      <circle cx="0" cy="0" r="9" fill="#d42020" opacity="0.7"/>
+      <circle cx="0" cy="0" r="4.5" fill="rgba(255,255,255,0.28)"/>
+      <circle cx="-8" cy="-8" r="4" fill="rgba(255,255,255,0.09)"/>
+
+      <!-- ── UPPER ARM ASSEMBLY (rotates at J3) ── -->
+      <g id="upperArmRot" transform="rotate(48)">
+
+        <!-- Upper arm body: narrower than lower arm -->
+        <polygon points="0,-22 228,-13 233,0 228,13 0,22" fill="url(#gBody)"/>
+        <!-- Top highlight -->
+        <polygon points="0,-22 228,-13 228,-10 0,-17"     fill="url(#gEdge)"/>
+        <!-- Bottom shadow -->
+        <polygon points="0,18 228,11 228,14 0,22"         fill="rgba(0,0,0,0.28)"/>
+        <!-- Stroke -->
+        <polygon points="0,-22 228,-13 233,0 228,13 0,22" fill="none" stroke="rgba(140,180,230,0.07)" stroke-width="1.2"/>
+
+        <!-- Red accent stripe -->
+        <rect x="20" y="-7" width="204" height="5" rx="2.5" fill="#d42020" opacity="0.6"/>
+        <!-- Cable/hose along bottom -->
+        <rect x="28" y="14" width="192" height="6" rx="3" fill="#0e1825" opacity="0.8"/>
+        <rect x="38" y="15" width="4"   height="4" rx="1" fill="#d42020" opacity="0.4"/>
+        <rect x="90" y="15" width="4"   height="4" rx="1" fill="#d42020" opacity="0.4"/>
+        <rect x="148" y="15" width="4"  height="4" rx="1" fill="#d42020" opacity="0.4"/>
+
+        <!-- J4 rotation axis seam (ABB arms show a visible rotation seam ~⅓ along upper arm) -->
+        <rect x="72" y="-24" width="5" height="48" rx="2" fill="rgba(0,0,0,0.45)"/>
+        <rect x="79" y="-23" width="3" height="46" rx="1.5" fill="rgba(140,180,230,0.08)"/>
+
+        <!-- ── WRIST ASSEMBLY (J5 + J6) ── -->
+        <g transform="translate(233, 0)">
+
+          <!-- J5 housing connection neck -->
+          <rect x="-7" y="-18" width="14" height="36" rx="4" fill="url(#gSide)"/>
+          <rect x="-7" y="-18" width="4"  height="36" rx="4" fill="url(#gEdge)" opacity="0.5"/>
+
+          <!-- J5 BEND JOINT DISC -->
+          <!-- Red glow -->
+          <circle cx="0" cy="0" r="22" fill="#d42020" opacity="0.15" filter="url(#fRed)"/>
+          <!-- Outer ring -->
+          <circle cx="0" cy="0" r="21" fill="none" stroke="#d42020" stroke-width="4" opacity="0.85"/>
+          <!-- Body -->
+          <circle cx="0" cy="0" r="17" fill="url(#gJoint)"/>
+          <!-- Inner ring -->
+          <circle cx="0" cy="0" r="11" fill="none" stroke="rgba(140,180,230,0.14)" stroke-width="1.5"/>
+          <!-- 4 bolts at r=14 -->
+          <circle cx="14"  cy="0"   r="2.5" fill="#0a1018" stroke="rgba(140,180,230,0.2)" stroke-width="1"/>
+          <circle cx="0"   cy="-14" r="2.5" fill="#0a1018" stroke="rgba(140,180,230,0.2)" stroke-width="1"/>
+          <circle cx="-14" cy="0"   r="2.5" fill="#0a1018" stroke="rgba(140,180,230,0.2)" stroke-width="1"/>
+          <circle cx="0"   cy="14"  r="2.5" fill="#0a1018" stroke="rgba(140,180,230,0.2)" stroke-width="1"/>
+          <!-- Center -->
+          <circle cx="0" cy="0" r="6" fill="#d42020" opacity="0.65"/>
+          <circle cx="0" cy="0" r="3" fill="rgba(255,255,255,0.25)"/>
+
+          <!-- J6 OUTPUT FLANGE (rotates with IK to maintain near-vertical) -->
+          <g id="flangeRot" transform="rotate(-88)">
+            <!-- Wrist neck -->
+            <rect x="-8" y="-26" width="16" height="18" rx="4" fill="url(#gBody)"/>
+            <rect x="-8" y="-26" width="4"  height="18" rx="4" fill="url(#gEdge)" opacity="0.5"/>
+            <!-- Flange disc -->
+            <circle cx="0" cy="6"  r="18" fill="url(#gJoint)"/>
+            <circle cx="0" cy="6"  r="18" fill="none" stroke="#d42020" stroke-width="3.5" opacity="0.85"/>
+            <circle cx="0" cy="6"  r="13" fill="none" stroke="rgba(140,180,230,0.12)" stroke-width="1.5"/>
+            <!-- 4 mounting holes -->
+            <circle cx="10"  cy="-1" r="3" fill="#0a1018" stroke="rgba(140,180,230,0.22)" stroke-width="1"/>
+            <circle cx="-10" cy="-1" r="3" fill="#0a1018" stroke="rgba(140,180,230,0.22)" stroke-width="1"/>
+            <circle cx="10"  cy="13" r="3" fill="#0a1018" stroke="rgba(140,180,230,0.22)" stroke-width="1"/>
+            <circle cx="-10" cy="13" r="3" fill="#0a1018" stroke="rgba(140,180,230,0.22)" stroke-width="1"/>
+            <!-- Center pip -->
+            <circle cx="0" cy="6" r="6.5" fill="#d42020" opacity="0.65"/>
+            <circle cx="0" cy="6" r="3"   fill="rgba(255,255,255,0.25)"/>
+            <!-- Laser/sensor dot -->
+            <circle cx="0" cy="6" r="4.5" fill="#d42020" filter="url(#fRed)" opacity="0.6"/>
+          </g>
+        </g><!-- /wrist -->
+      </g><!-- /upperArmRot -->
+    </g><!-- /J3 elbow -->
+  </g><!-- /lowerArmRot -->
+
+</g><!-- /arm assembly -->
+</svg>
+
+<!-- ── NAV ──────────────────────────────────────────────────────── -->
+<nav class="nav" id="mainNav">
+  <div class="nav-l">
+    <span class="nav-badge">ABB</span>
+    <span class="nav-name">Competitive Radar</span>
+  </div>
+  <div class="nav-r">
+    <span class="live-pill"><span class="live-dot"></span>Live</span>
+    <span class="nav-clock" id="clock">--</span>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────────── -->
+<section class="hero" id="hero">
+
+  <!-- Particles (positioned by JS) -->
+  <span class="particle" style="width:4px;height:4px;top:20%;left:12%"></span>
+  <span class="particle" style="width:3px;height:3px;top:35%;left:82%"></span>
+  <span class="particle" style="width:5px;height:5px;top:65%;left:18%"></span>
+  <span class="particle" style="width:3px;height:3px;top:72%;left:75%"></span>
+  <span class="particle" style="width:4px;height:4px;top:50%;left:90%"></span>
+  <span class="particle" style="width:6px;height:6px;top:25%;left:55%"></span>
+
+  <div class="hero-inner">
+
+    <div class="hero-eyebrow" id="heroEyebrow">
+      <span class="eyebrow-dot"></span>
+      工业自动化 · 市场竞争情报系统
+    </div>
+
+    <h1 class="hero-title">
+      <span class="line-wrap"><span class="line-inner l1" id="heroL1">Industrial</span></span>
+      <span class="line-wrap"><span class="line-inner l2" id="heroL2">Radar</span></span>
+    </h1>
+
+    <p class="hero-sub" id="heroSub">
+      AI 驱动的竞品监测平台，覆盖 Siemens、Rockwell、Schneider 等核心对手，
+      每日自动抓取 4 大信息源，提供可溯源的情报简报。
+    </p>
+
+    <!-- Stat counters -->
+    <div class="hero-stats">
+      <div class="hero-stat" id="hs1">
+        <span class="stat-n red" data-target="3" id="cnt-crit">0</span>
+        <span class="stat-l">Critical alerts</span>
+      </div>
+      <div class="hero-stat" id="hs2">
+        <span class="stat-n" data-target="24" id="cnt-total">0</span>
+        <span class="stat-l">Signals this cycle</span>
+      </div>
+      <div class="hero-stat" id="hs3">
+        <span class="stat-n grn" data-target="4" id="cnt-src">0</span>
+        <span class="stat-l">Data sources</span>
+      </div>
+      <div class="hero-stat" id="hs4">
+        <span class="stat-n" data-target="6" id="cnt-rooms">0</span>
+        <span class="stat-l">Newsrooms</span>
+      </div>
+    </div>
+
+    <a href="#dashboard" class="hero-cta" id="heroCta">
+      查看实时信号板
+      <span class="hero-cta-arrow">↓</span>
+    </a>
+
+  </div>
+
+  <div class="hero-scroll" id="heroScroll">
+    SCROLL
+    <span class="scroll-line"></span>
+  </div>
+
+</section>
+
+<!-- ── DASHBOARD ─────────────────────────────────────────────────── -->
+<section class="section dash-section" id="dashboard">
+  <div class="section-inner">
+
+    <div class="sec-eyebrow">LIVE DASHBOARD</div>
+    <h2 class="sec-h2" style="margin-bottom:2rem">实时情报信号板</h2>
+
+    <!-- Toolbar -->
+    <div class="dash-toolbar">
+      <div class="dash-search">
+        <input type="text" id="searchInput" placeholder="搜索信号… GaN · Rockwell · SiC · inverter">
+      </div>
+      <div class="dash-sep"></div>
+      <button class="sort-btn active" data-sort="date" onclick="setSort('date')">最新</button>
+      <button class="sort-btn" data-sort="score" onclick="setSort('score')">威胁排序</button>
+      <span class="dash-count" id="resultCount"></span>
+    </div>
+
+    <div id="feed">
+      <div class="empty">
+        <div class="empty-icon">⏳</div>
+        <p>加载情报数据中…</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── COMPETITORS ───────────────────────────────────────────────── -->
+<div class="comp-section">
+  <div class="comp-inner">
+    <div class="comp-label">竞争对手新闻室</div>
+    <div class="comp-chips" id="compGrid"></div>
+  </div>
+</div>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-l">
+      <span class="footer-badge">ABB</span>
+      Market Intelligence Monitor · <strong style="color:rgba(255,255,255,.5)">楼丰川</strong>
+    </div>
+    <span class="footer-r">
+      press.siemens.com · drivesncontrols.com · powerelectronicsnews.com · engineering.com
+    </span>
+  </div>
+</footer>
+
+<!-- ── CLOCK ──────────────────────────────────────────────────────── -->
+<script>
+(function tick(){
+  var d=new Date(), z=function(n){return n<10?'0'+n:n};
+  document.getElementById('clock').textContent =
+    d.getFullYear()+'-'+z(d.getMonth()+1)+'-'+z(d.getDate())+
+    ' '+z(d.getHours())+':'+z(d.getMinutes())+':'+z(d.getSeconds());
+  setTimeout(tick,1000);
+})();
+</script>
+
+<!-- ── GSAP ANIMATIONS ───────────────────────────────────────────── -->
+<script>
+// ── Register plugin ──────────────────────────────────────────────
+gsap.registerPlugin(ScrollTrigger);
+
+// ── Respect prefers-reduced-motion ──────────────────────────────
+const mm = gsap.matchMedia();
+
+mm.add("(prefers-reduced-motion: no-preference)", () => {
+
+  // ── 1. Entry timeline ─────────────────────────────────────────
+  const tl = gsap.timeline({
+    defaults: { ease: "power3.out" },
+    delay: 0.1
+  });
+
+  tl.to("#mainNav",  { opacity:1, duration:.5 })
+    .from(".hero-eyebrow", { opacity:0, y:12, duration:.5 }, "-=.2")
+    .from("#heroL1", { y:"110%", duration:.75 }, "-=.25")
+    .from("#heroL2", { y:"110%", duration:.75 }, "-=.55")
+    .to("#heroSub",  { opacity:1, y:0, duration:.6 }, "-=.4")
+    .to(["#hs1","#hs2","#hs3","#hs4"],
+        { opacity:1, y:0, stagger:.08, duration:.5 }, "-=.35")
+    .to("#heroCta",  { opacity:1, scale:1, duration:.4 }, "-=.25")
+    .to("#heroScroll",{ opacity:1, duration:.4 }, "-=.1");
+
+  // Set initial states for GSAP-animated elements
+  gsap.set("#heroSub",   { opacity:0, y:20 });
+  gsap.set(["#hs1","#hs2","#hs3","#hs4"], { opacity:0, y:20 });
+  gsap.set("#heroCta",   { opacity:0, scale:.94 });
+  gsap.set("#heroScroll",{ opacity:0 });
+
+  // ── 2. Counter animation (fires after entry) ──────────────────
+  tl.call(function(){
+    document.querySelectorAll('.stat-n[data-target]').forEach(function(el){
+      var obj = { val: 0 };
+      gsap.to(obj, {
+        val: parseInt(el.dataset.target),
+        duration: 1.4,
+        ease: "power2.out",
+        onUpdate: function(){ el.textContent = Math.round(obj.val); }
+      });
+    });
+  }, null, "-=.3");
+
+  // ── 3. Floating particles ─────────────────────────────────────
+  document.querySelectorAll('.particle').forEach(function(el){
+    gsap.to(el, {
+      y: gsap.utils.random(-40, -80),
+      x: gsap.utils.random(-20, 20),
+      opacity: gsap.utils.random(.08, .18),
+      duration: gsap.utils.random(3.5, 6.5),
+      repeat: -1, yoyo: true,
+      ease: "sine.inOut",
+      delay: gsap.utils.random(0, 2.5)
+    });
+  });
+
+  // ── 4. ScrollTrigger: dashboard section header ────────────────
+  gsap.from(".dash-section .sec-eyebrow, .dash-section .sec-h2, .dash-toolbar", {
+    opacity: 0, y: 25,
+    stagger: .08,
+    duration: .65,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: "#dashboard",
+      start: "top 80%"
+    }
+  });
+
+  // ── 7. ScrollTrigger.batch for signal rows (fires after data load) ──
+  window._gsapRefreshNeeded = true; // flag for after data loads
+
+});
+
+// ── Reduced motion fallback: show everything instantly ──────────
+mm.add("(prefers-reduced-motion: reduce)", () => {
+  gsap.set("#mainNav", { opacity:1 });
+  gsap.set(".hero-eyebrow", { opacity:1 });
+  document.querySelectorAll('.stat-n[data-target]').forEach(function(el){
+    el.textContent = el.dataset.target;
+  });
+});
+
+// ── Animate signal rows once rendered ────────────────────────────
+function animateSignalRows() {
+  if(!window._gsapRefreshNeeded) return;
+  ScrollTrigger.refresh();
+  ScrollTrigger.batch(".signal", {
+    onEnter: function(batch){
+      gsap.from(batch, {
+        opacity: 0, y: 24,
+        stagger: .05,
+        duration: .55,
+        ease: "power3.out"
+      });
+    },
+    start: "top 88%",
+    once: true
+  });
+  ScrollTrigger.batch(".comp-chip", {
+    onEnter: function(batch){
+      gsap.from(batch, {
+        opacity: 0, y: 12, scale: .96,
+        stagger: .04,
+        duration: .45,
+        ease: "power3.out"
+      });
+    },
+    start: "top 90%",
+    once: true
+  });
+  window._gsapRefreshNeeded = false;
+}
+</script>
+
+<!-- ── DATA + RENDER ─────────────────────────────────────────────── -->
+<script>
+var SIGNALS = [], COMPS = [];
+
+(function load(){
+  fetch('signals.json?t=' + Date.now())
+    .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+    .then(function(data){
+      SIGNALS = data.signals     || [];
+      COMPS   = data.competitors || [];
+
+      var crit  = SIGNALS.filter(function(s){ return s.level==='critical'; }).length;
+      var total = data.total || SIGNALS.length;
+
+      // Update hero counters (animate from current displayed value)
+      var obj1 = { val: parseInt(document.getElementById('cnt-crit').textContent)||0 };
+      gsap.to(obj1, { val:crit,  duration:.8, ease:"power2.out",
+        onUpdate:function(){ document.getElementById('cnt-crit').textContent  = Math.round(obj1.val); }});
+      var obj2 = { val: parseInt(document.getElementById('cnt-total').textContent)||0 };
+      gsap.to(obj2, { val:total, duration:.8, ease:"power2.out",
+        onUpdate:function(){ document.getElementById('cnt-total').textContent = Math.round(obj2.val); }});
+
+      initApp();
+    })
+    .catch(function(err){
+      document.getElementById('feed').innerHTML =
+        '<div class="empty"><div class="empty-icon">⚠️</div>' +
+        '<p>数据加载失败：'+err.message+'</p>' +
+        '<small style="font-size:.72rem;color:var(--ink3);margin-top:4px;display:block">请确认 signals.json 可访问</small></div>';
+    });
+})();
+
+function initApp(){
+  render();
+  // Competitor chips
+  var h='';
+  COMPS.forEach(function(c){
+    h+='<a class="comp-chip" href="'+c.u+'" target="_blank" rel="noopener">' +
+       '<span class="comp-dot" style="background:'+c.c+'"></span>'+c.n+
+       '<span class="comp-arr">↗</span></a>';
+  });
+  document.getElementById('compGrid').innerHTML = h;
+  // Trigger GSAP batch after DOM update
+  setTimeout(animateSignalRows, 80);
+}
+
+var sortMode='date', searchQuery='';
+
+function render(){
+  var items = SIGNALS.slice();
+  if(searchQuery){
+    var q=searchQuery.toLowerCase();
+    items=items.filter(function(s){
+      return s.title.toLowerCase().indexOf(q)>-1||
+             s.brief.toLowerCase().indexOf(q)>-1||
+             s.insight.toLowerCase().indexOf(q)>-1||
+             s.s.toLowerCase().indexOf(q)>-1||
+             s.tags.some(function(tg){return tg.l.toLowerCase().indexOf(q)>-1});
+    });
+  }
+  if(sortMode==='score')
+    items.sort(function(a,b){return b.score-a.score});
+  else
+    items.sort(function(a,b){return a.day-b.day||(a.time||'00:00').localeCompare(b.time||'00:00')});
+
+  document.getElementById('resultCount').textContent = items.length+' / '+SIGNALS.length;
+
+  if(!items.length){
+    document.getElementById('feed').innerHTML =
+      '<div class="empty"><div class="empty-icon">🔍</div>' +
+      '<p>没有匹配 "'+searchQuery+'" 的信号</p></div>';
+    return;
+  }
+
+  var crit   = items.filter(function(s){return s.score>=85});
+  var high   = items.filter(function(s){return s.score>=75&&s.score<85});
+  var medium = items.filter(function(s){return s.score<75});
+
+  function group(label, dotColor, arr){
+    if(!arr.length) return '';
+    var g='<div class="pgroup">';
+    g+='<div class="pgroup-hd"><span class="pgroup-dot" style="background:'+dotColor+'"></span>' +
+       '<span class="pgroup-label">'+label+'</span>' +
+       '<span class="pgroup-count">'+arr.length+'</span></div>';
+    arr.forEach(function(item){
+      var lv=item.score>=85?'c':item.score>=75?'h':'m';
+      g+='<div class="signal">';
+      g+='<div class="sig-hd"><span class="sig-src '+item.t+'">'+item.s+'</span>' +
+         '<span class="sig-date">'+item.d+'</span>' +
+         '<span class="sig-score '+lv+'">'+item.score+'</span></div>';
+      if(item.surl)
+        g+='<div class="sig-title"><a href="'+item.surl+'" target="_blank" rel="noopener">'+item.title+'</a></div>';
+      else
+        g+='<div class="sig-title">'+item.title+'</div>';
+      g+='<div class="sig-brief">'+item.brief+'</div>';
+      g+='<div class="sig-tags">';
+      item.tags.forEach(function(tg){g+='<span class="sig-tag '+tg.c+'">'+tg.l+'</span>'});
+      g+='</div><div class="sig-insight">'+item.insight+'</div></div>';
+    });
+    return g+'</div>';
+  }
+
+  document.getElementById('feed').innerHTML =
+    group('Critical','#d42020',crit) +
+    group('High','#c17d00',high) +
+    group('Moderate','#8896b0',medium);
+
+  // Re-trigger batch animation after re-render
+  setTimeout(animateSignalRows, 80);
+}
+
+function setSort(m){
+  sortMode=m;
+  document.querySelectorAll('.sort-btn').forEach(function(b){
+    b.classList.toggle('active',b.dataset.sort===m);
+  });
+  render();
+}
+
+document.getElementById('searchInput').addEventListener('input',function(){
+  searchQuery=this.value.trim(); render();
+});
+
+// ── Robot arm IK + idle animation ────────────────────────────────
+(function(){
+  var svg = document.getElementById('robotArm');
+  var lR  = document.getElementById('lowerArmRot');
+  var uR  = document.getElementById('upperArmRot');
+  var fR  = document.getElementById('flangeRot');
+  // J2 shoulder in SVG space (left side, lower-left of viewport)
+  var SX=118, SY=766, L1=306, L2=235;
+  var raf=null, idleTimer=null;
+  // Rest position: arm extends upper-right from left base
+  var restA1 = -38, restA2abs = 10;
+  var curA1 = restA1, curA2abs = restA2abs;
+
+  function applyAngles(a1, a2abs){
+    curA1=a1; curA2abs=a2abs;
+    lR.setAttribute('transform','rotate('+a1+')');
+    uR.setAttribute('transform','rotate('+(a2abs-a1)+')');
+    // Keep flange roughly vertical (tool-down orientation)
+    if(fR) fR.setAttribute('transform','rotate('+(-a2abs - 2)+')');
+  }
+
+  function ik(mx, my){
+    var r  = svg.getBoundingClientRect();
+    var sc = Math.max(r.width/1440, r.height/900);
+    var ox = (r.width -1440*sc)/2, oy = (r.height-900*sc)/2;
+    var tx = (mx - r.left - ox)/sc;
+    var ty = (my - r.top  - oy)/sc;
+    tx = Math.max(30, Math.min(1400, tx));
+    ty = Math.max(30, Math.min(870,  ty));
+    var dx=tx-SX, dy=ty-SY, dist=Math.sqrt(dx*dx+dy*dy);
+    var maxR=L1+L2-6, minR=Math.abs(L1-L2)+6;
+    if(dist>maxR){tx=SX+dx/dist*maxR;ty=SY+dy/dist*maxR;dx=tx-SX;dy=ty-SY;dist=maxR;}
+    if(dist<minR) return;
+    var cA=Math.max(-1,Math.min(1,(L1*L1+dist*dist-L2*L2)/(2*L1*dist)));
+    var a1=Math.atan2(dy,dx)-Math.acos(cA);
+    var ex=SX+L1*Math.cos(a1), ey=SY+L1*Math.sin(a1);
+    var a2=Math.atan2(ty-ey,tx-ex);
+    var a1d=a1*180/Math.PI, a2d=a2*180/Math.PI;
+    gsap.to({a1:curA1,a2:curA2abs},{
+      a1:a1d, a2:a2d, duration:0.22, ease:"power2.out", overwrite:true,
+      onUpdate:function(){ applyAngles(this.targets()[0].a1, this.targets()[0].a2); }
+    });
+  }
+
+  // Idle breathing animation
+  var idleObj={t:0};
+  gsap.to(idleObj,{
+    t:1, duration:4.5, repeat:-1, yoyo:true, ease:"sine.inOut",
+    onUpdate:function(){
+      if(idleTimer!==null) return;
+      var a1 = restA1 + Math.sin(idleObj.t*Math.PI)*9;
+      var a2 = restA2abs + Math.cos(idleObj.t*Math.PI*0.65)*7;
+      applyAngles(a1, a2);
+    }
+  });
+
+  document.addEventListener('mousemove',function(e){
+    if(raf) return;
+    raf=requestAnimationFrame(function(){ ik(e.clientX,e.clientY); raf=null; });
+    clearTimeout(idleTimer);
+    idleTimer=setTimeout(function(){ idleTimer=null; }, 2500);
+  });
+
+  applyAngles(restA1, restA2abs);
+})();
+</script>
+</body>
+</html>
