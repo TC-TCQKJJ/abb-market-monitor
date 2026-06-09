@@ -1,4 +1,4 @@
-1|1|1|<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -382,45 +382,47 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Micr
 
 </div>
 
-<footer class="ft">ABB Market Intelligence Monitor · <strong>楼丰川</strong> · Sources: press.siemens.com · drivesncontrols.com · powerelectronicsnews.com · engineering.com</footer>
+<footer class="ft">ABB Market Intelligence Monitor · <strong>楼丰川</strong> · Sources: press.siemens.com · drivesncontrols.com · powerelectronicsnews.com · eng<script>
+// ═══════════ DATA LOADER ═══════════
+var SIGNALS = [], COMPS = [], DATA = {};
 
-<script>
-// ═══════════ DATA ═══════════
-var SIGNALS = [
-  {s:"Siemens Press",t:"s",d:"8 Jun 2026",day:1,time:"11:03",surl:"https://press.siemens.com/global/en/event/second-quarter-results-fy-2026",title:"Siemens Q2 FY2026 — Digital Industries Revenue Up, Guidance Raised",brief:"Siemens DI posts strong Q2 growth. Contrast with ABB Process Automation performance.",tags:[{l:"EARNINGS",c:"a"},{l:"BENCHMARK",c:"w"}],score:78,level:"high",insight:"西门子DI部门Q2收入增长强劲，直接威胁ABB过程自动化市场份额（全球工厂自动化市场约$200B，ABB份额~12%）。若ABB同期增长率落后西门子超过3%，投资者将质疑ABB在离散制造自动化领域的竞争力。建议：立即对比Siemens DI与ABB Process Automation的Q2有机增长率、订单积压和区域表现；若差距超过2%，CFO需在Q2电话会提前准备解释口径，强调ABB在流程工业（油气、化工、采矿）的结构性优势与西门子离散制造的差异化定位；关注西门子软件收入占比——若MindSphere和IoT增速超过20%，说明平台黏性正在锁定客户。"},
-  {s:"Siemens Press",t:"s",d:"19 May 2026",day:21,time:"09:00",surl:"https://press.siemens.com/global/en/pressrelease/siemens-and-highbyte-partner-industrial-data-operations-scale-industrial-ai",title:"Siemens + HighByte: Industrial Data Middleware to Scale Factory AI",brief:"Siemens partners with data integration specialist to solve the #1 barrier to industrial AI — siloed factory data.",tags:[{l:"PARTNERSHIP",c:"a"},{l:"AI",c:"i"}],score:84,level:"high",insight:"工业AI落地的首要瓶颈不是算法，而是数据孤岛——工厂OT数据格式数百种，80%的项目在数据集成阶段失败。西门子与HighByte合作直接解决了这个问题：将OPC-UA、MQTT、Modbus等协议统一接入AI管线，大幅降低部署周期（从数月缩至数周）。这对ABB是双重威胁：西门子正在建立数据层锁定效应——客户一旦将全厂数据通过Siemens-HighByte管道标准化，迁移成本极高；ABB Ability目前的数据集成能力依赖项目定制，缺乏统一的中间件层。紧急建议：30天内完成ABB Ability数据集成能力的第三方审计，绘制差距矩阵；评估收购类似标的（如Litmus Automation、Crosser Technologies）；若不自研或收购，至少确保ABB Ability开放API支持与HighByte互通，避免客户因技术选型被排除在ABB生态之外。"},
-  {s:"Siemens Press",t:"s",d:"14 May 2026",day:26,time:"09:00",surl:"https://press.siemens.com/global/en/pressrelease/siemens-and-partners-develop-reference-architecture-purpose-built-nvidia-ai-data",title:"Siemens Builds NVIDIA AI Data Center Reference Architecture",brief:"Siemens positions as electrical infra provider for AI data center boom. ABB Electrification core market at stake.",tags:[{l:"PARTNERSHIP",c:"a"},{l:"DATA CENTER",c:"a"}],score:86,level:"critical",insight:"这是本周期最高优先级威胁。AI数据中心电气基础设施市场预计2030年达$180B（CAGR 28%），是ABB Electrification最大的增量市场。西门子通过发布与NVIDIA的参考架构，实质上在争夺行业标准制定者的头把交椅——不是卖产品，而是定义整个AI数据中心如何配电、冷却、监控。这种架构即标准策略比卖设备更具杀伤力：一旦行业采纳Siemens参考设计，ABB将被锁定在标准之外。ABB Electrification必须紧急行动：30天内组建AI数据中心专项团队；与NVIDIA或AMD建立对等合作关系发布ABB参考架构；在即将到来的行业展会以开放架构叙事反击。这不是产品竞争——这是对AI时代电气标准制定权的争夺。"},
-  {s:"Siemens Press",t:"s",d:"12 May 2026",day:28,time:"09:00",surl:"https://press.siemens.com/global/en/pressrelease/siemens-fortifies-cyber-resilience-ensure-energy-supply-critical-infrastructures",title:"Siemens Pushes Cyber Resilience for Critical Energy Infrastructure",brief:"Siemens strengthens security narrative for grid customers. Trust is becoming a key differentiator.",tags:[{l:"STRATEGY",c:"w"},{l:"CYBERSECURITY",c:"w"}],score:76,level:"high",insight:"电网运营商采购决策中，网络安全权重从2020年的8%上升至2026年的22%（Gartner数据），正从技术指标变成否决性门槛。西门子此时强化安全叙事，是在市场教育窗口期抢占信任高地——电力公司CISO开始将安全认证作为RFP硬性要求。ABB的短板：缺乏面向电网安全的独立品牌和白皮书，安全能力分散在各产品线的技术文档中；IEC 62443认证覆盖率不明，而西门子正在系统性地为全线产品申请认证。建议：3个月内发布《ABB电网安全白皮书》，引用独立第三方审计数据；核查全线产品IEC 62443认证状态，将未认证产品列入6个月补认证计划；在ABB电网解决方案中嵌入安全即设计品牌叙事。"},
-  {s:"Siemens Press",t:"s",d:"8 May 2026",day:32,time:"09:00",surl:"https://press.siemens.com/global/en/pressrelease/siemens-launches-ai-powered-service-further-drive-autonomous-building-operations",title:"Siemens AI Extends from Factory to Building — Cross-Vertical Strategy",brief:"Siemens applies industrial AI to smart buildings. ABB's siloed business units risk being outflanked.",tags:[{l:"PRODUCT",c:"w"},{l:"AI",c:"i"}],score:76,level:"high",insight:"西门子的AI策略是一次开发、跨行业部署——在MindSphere和Industrial Operations X平台上构建AI模型，然后横向扩展到楼宇、电网、交通等垂直行业。这大幅摊薄了AI研发成本，每新增一个行业，边际成本接近零。ABB与之对比：四大事业部各自独立开发AI能力，技术栈分散、数据不互通、规模效应无法发挥。这种组织架构差异正在演变为战略劣势。建议：在集团层面设立ABB AI Platform委员会，审计四大事业部AI技术栈的重叠与差距；目标6个月内推出ABB统一AI能力目录；在智能楼宇领域，将ABB i-bus KNX和ABB Ability AI能力整合，直接对标西门子Building X。"},
-  {s:"Siemens Press",t:"s",d:"5 May 2026",day:35,time:"09:00",surl:"https://press.siemens.com/global/en/pressrelease/siemens-expands-its-digital-portfolio-water-wastewater-and-waste-management",title:"Siemens Digital Water Portfolio Expansion — Overlap with ABB Ability Water",brief:"Siemens extends IoT+AI into water infrastructure. Direct overlap with ABB water/wastewater automation.",tags:[{l:"PRODUCT",c:"w"},{l:"WATER",c:"w"}],score:74,level:"medium",insight:"全球智慧水务市场2030年将达到$75B，且多为政府长期合同（10-15年），客户粘性极高——一旦中标，后续升级和扩建几乎锁定原供应商。西门子此时将数字孪生和AI预测性维护注入水务组合，是在抢占长期年金型收入的入口。ABB Ability Water目前侧重于SCADA和过程控制，在AI预测、数字孪生方面的能力矩阵薄弱。建议：一周内完成ABB Ability Water与Siemens SIWA Water Portfolio功能对比分析；识别2-3个可快速补齐的AI能力（如管道泄漏预测、泵站能效优化），通过自研或合作在6个月内上线；在全球Top 20水务公司的ABB存量客户中进行AI升级主动提案，防止被西门子切入。"},
-  {s:"Siemens Press",t:"s",d:"4 May 2026",day:36,time:"09:00",surl:"https://press.siemens.com/global/en/pressrelease/siemens-and-infineon-leverage-silicon-carbide-technology-advance-electrical-protection",title:"Siemens + Infineon: SiC Technology for Next-Gen Electrical Protection",brief:"SiC enables smaller, faster circuit protection. ABB electrification faces technology transition.",tags:[{l:"PARTNERSHIP",c:"w"},{l:"SiC",c:"i"}],score:78,level:"high",insight:"碳化硅在电气保护设备中是范式级技术转折——SiC断路器比传统硅基方案体积缩小40%、响应速度快10倍、能量损耗降低50%。西门子绑定英飞凌（全球SiC产能第一），获取了优先供应权。ABB面临的不仅是技术落后风险，更是供应链安全风险：全球SiC衬底产能高度集中（Wolfspeed、英飞凌、意法半导体三家占70%），若竞争对手锁定产能，ABB产品上市时间将受制于人。紧迫行动：48小时内盘点ABB全线电气保护产品的功率半导体供应商及SiC替代方案成熟度；评估是否需与Wolfspeed或ROHM建立战略供应协议以确保第二供应源；审查ABB SiC产品路线图——若第一款SiC断路器上市时间晚于西门子超过12个月，将永久丧失先发优势和标准主导权。"},
-  {s:"Siemens Press",t:"s",d:"4 May 2026",day:36,time:"09:00",surl:"https://press.siemens.com/global/en/pressrelease/siemens-gridscale-x-redefines-system-operations-and-agentic-transmission-planning",title:"Siemens Gridscale X: Agentic AI Enters Grid Operations — New Category",brief:"Siemens creates new category with agentic AI for autonomous grid management. ABB must respond.",tags:[{l:"PRODUCT",c:"a"},{l:"GRID",c:"a"},{l:"AI",c:"i"}],score:86,level:"critical",insight:"这是本周期战略级警报。Agentic AI（自主决策AI）在电网运营中的应用是一个全新品类——与传统的AI辅助决策不同，它能自主分析电网状态、预测故障、制定调度方案并执行。西门子通过Gridscale X率先定义了这个品类，先发优势可能在18-24个月内转化为标准话语权和客户认知锁定。对ABB的威胁：ABB电网自动化部门若6个月内没有对等的Agentic AI产品和路线图，将在全球电网现代化RFP中被系统性排除。建议立即提升至董事会层面：48小时内部评估Gridscale X能力矩阵并与ABB产品对标；决定自研（需投入$50-100M）还是收购（扫描Grid Software和AI电力调度初创公司）；在下次投资者日中至少展示Agentic AI电网愿景——沉默即示弱。"},
-  {s:"Drives & Controls",t:"d",d:"8 Jun 2026",day:1,time:"11:03",surl:"https://drivesncontrols.com/skills-gaps-risk-billions-in-ai-productivity-gains-for-uk-manufacturers/",title:"Skills Gaps Threaten Billions in AI Productivity Gains for UK Manufacturing",brief:"UK manufacturers cannot find enough AI-skilled workers. Vendors who simplify AI deployment will win.",tags:[{l:"TREND",c:"w"},{l:"WORKFORCE",c:"w"}],score:74,level:"medium",insight:"制造业技能短缺的宏观趋势正在重塑采购决策标准——越来越多工厂在RFP中明确要求无需数据科学家即可使用AI功能，供应商的易用性正成为与价格、性能并列的前三决策因子。这是ABB的重大机会：ABB Ability平台若能实现No-Code AI——即产线工程师无需Python和ML背景即可配置预测性维护和异常检测——将直接击中西门子的软肋（Xcelerator和MindSphere的学习曲线仍然较陡）。建议：市场部立即将AI for Engineers, Not Data Scientists作为核心价值主张，对比竞品学习曲线和部署时间；与ABB Robotics联合推出1小时AI部署试点案例；调研ABB现有客户中因技能短缺放弃AI项目的比例——作为销售赋能数据。"},
-  {s:"Drives & Controls",t:"d",d:"8 Jun 2026",day:1,time:"09:21",surl:"https://drivesncontrols.com/austrian-project-uses-ai-to-boost-energy-efficiency-in-industrial-drives/",title:"Austrian Research: AI Boosts Industrial Drive Energy Efficiency 12-18%",brief:"Academic project proves AI optimization of motor drives delivers double-digit efficiency gains — data ABB can use.",tags:[{l:"AI",c:"i"},{l:"ENERGY",c:"w"}],score:74,level:"medium",insight:"这个奥地利研究项目的数据可以直接武器化用于ABB销售。工业电机占全球电力消耗约45%，ABB Motion作为全球电机和变频器市场领导者（市场份额约18%），12-18%的能效提升意味着ROI（投资回报期）缩短至6-12个月——这将成为最强销售话术。建议：24小时内从R&D获取ABB现有AI节能方案的实际数据，若低于12%基准线，启动紧急研发计划；制作对比白皮书：传统IE3电机加ABB AI优化对比IE5无AI优化，用TCO（总拥有成本）数据说话；资助独立第三方对ABB驱动系统进行类似基准测试并发表。"},
-  {s:"Drives & Controls",t:"d",d:"5 Jun 2026",day:4,time:"11:26",surl:"https://drivesncontrols.com/micro-plc-connects-to-ip-and-mqtt-solving-an-automation-pain-point/",title:"New Micro-PLC With Native IP and MQTT — The New Baseline for IIoT",brief:"Micro-PLC with built-in MQTT/IP redefines connectivity. PLCs without native IIoT are becoming legacy.",tags:[{l:"PRODUCT",c:"a"},{l:"PLC",c:"n"},{l:"IIOT",c:"i"}],score:78,level:"high",insight:"PLC市场正经历15年来最深刻的功能基线重定义——MQTT和IP正从加分功能变成入场券，就像2010年代不支持Ethernet的PLC迅速被淘汰。市场转折窗口约24-36个月：新增采购中Native MQTT已是Top 3要求。ABB AC500和AC500-eCo系列若不支持原生MQTT和IP（非网关转换），将在未来的中小型PLC招标中被系统性淘汰。紧急行动：48小时内技术审计AC500系列IIoT协议栈；若不支持原生MQTT，制定紧急固件更新或新模块发布路线图（目标90天）；在市场营销中明确标注Native MQTT Support——这是RFP筛选关键词。"},
-  {s:"Drives & Controls",t:"d",d:"2 Jun 2026",day:7,time:"09:47",surl:"https://drivesncontrols.com/why-machine-builders-are-rethinking-the-need-for-control-cabinets/",title:"Machine Builders Abandon Control Cabinets — Decentralized Automation Rises",brief:"Cabinetless architectures replacing centralized control. ABB's cabinet business faces structural disruption.",tags:[{l:"TREND",c:"a"},{l:"ARCHITECTURE",c:"w"}],score:82,level:"high",insight:"去控制柜化不是渐进趋势，而是结构性颠覆：IP67分布式I/O和驱动器成本已降至与传统机柜方案持平，但节省30-40%的机柜空间和布线工时；模块化机器设计要求每个模块自带控制，中央机柜成为瓶颈；数字化维护需求——分布式智能节点可实现单模块更换而无需整机停机。ABB Electrification的控制柜和机柜业务（估计年收入$3-5B）面临长期结构性下滑风险。建议：建立专门团队评估控制柜收入中可被分布式替代的比例；加速ABB分布式I/O和驱动器产品线推广，将收入从机柜转向分布式智能节点——本质是自我淘汰以避免被他杀；与主要OEM客户进行联合设计，提前锁定下一代分布式架构的供应商地位。"},
-  {s:"Drives & Controls",t:"d",d:"1 Jun 2026",day:8,time:"14:57",surl:"https://drivesncontrols.com/time-saving-ai-tool-helps-manufacturers-to-scale-machine-vision-tasks/",title:"AI Tool Lets Manufacturers Deploy Machine Vision 3x Faster",brief:"New platform dramatically lowers barrier to AI quality inspection. Machine vision democratization accelerates.",tags:[{l:"AI",c:"i"},{l:"VISION",c:"i"}],score:74,level:"medium",insight:"机器视觉是ABB Robotics的核心增值服务之一——ABB的3D视觉引导机器人（如PickMaster）在汽车和电子装配中大量使用。AI部署速度提升3倍意味着视觉正从机器人供应商绑定的差异化功能变成即插即用的通用模块，ABB机器人的解决方案价值被稀释。对策建议：确认ABB视觉产品的AI模型训练时间和部署周期；若无低代码AI视觉产品，这是Top 3产品缺口——考虑通过合作（如与Cognex扩大合作）或收购填补；提出Robot加Vision加AI、One Vendor、Zero Integration的价值主张，强调集成优势而非单品竞争力。"},
-  {s:"Drives & Controls",t:"d",d:"1 Jun 2026",day:8,time:"11:46",surl:"https://drivesncontrols.com/first-1mhz-gan-motor-drive-adds-dynamic-cogging-correction-without-sensors/",title:"World First: 1MHz GaN Motor Drive — Generational Leap in Drive Tech",brief:"GaN power semiconductors hit 1MHz switching in motor drive. ABB's drive portfolio must track this transition.",tags:[{l:"TECH",c:"a"},{l:"DRIVES",c:"n"},{l:"GAN",c:"i"}],score:82,level:"high",insight:"1MHz GaN驱动器的出现是电机驱动领域的iPhone时刻——开关频率提升100倍，驱动器体积可缩小60-80%，实现电机-驱动器一体化设计，系统成本降低15-20%。ABB Motion作为全球传动市场领导者，面临的是代际技术跨越：如果第一个1MHz GaN产品来自竞争对手（尤其是Yaskawa或Siemens），ABB将在高端传动市场丧失技术领导力叙事。紧急建议：48小时内要求ABB Motion R&D报告当前GaN研发项目状态及量产路线图；若无GaN研发项目，立即批准$10-20M启动预算；与GaN Systems或Navitas建立技术合作关系加速原型开发。"},
-  {s:"Drives & Controls",t:"d",d:"31 May 2026",day:9,time:"18:31",surl:"https://drivesncontrols.com/a-0-2-motor-efficiency-rise-could-deliver-savings-of-12bn-for-industry/",title:"Study: 0.2% Motor Efficiency Gain = $12 Billion Annual Savings",brief:"Independent analysis quantifies massive ROI of high-efficiency motors. Perfect marketing ammunition for ABB.",tags:[{l:"DATA",c:"i"},{l:"MOTORS",c:"w"}],score:76,level:"high",insight:"$120亿这个数字是ABB高效电机产品线（IE4和IE5同步磁阻电机）的最强营销弹药。全球约3亿台工业电机在运行，若全部从IE3升级到IE4，节省金额相当于$90-120B每年。ABB拥有业界最完整的IE4和IE5同步磁阻电机产品线，这个数据让ABB的ROI论证从产品规格对比升级为宏观经济论证。具体行动：立即将这个$120亿数据制作成客户ROI计算器（在线交互工具）；ABB Motion销售团队24小时内收到该研究报告摘要并嵌入下次客户会议的PPT；计算ABB IE5同步磁阻电机Top 10目标客户的年节省金额，指名道姓制作定制提案。"},
-  {s:"Drives & Controls",t:"d",d:"31 May 2026",day:9,time:"18:12",surl:"https://drivesncontrols.com/rockwell-and-others-invest-45m-in-uk-firm-that-manages-factory-fleets/",title:"Rockwell Leads $45M Investment in Factory Fleet Management Startup",brief:"Rockwell expands from factory automation into intralogistics and AMRs. ABB should assess this adjacent market.",tags:[{l:"M&A",c:"a"},{l:"ROCKWELL",c:"a"}],score:84,level:"high",insight:"罗克韦尔$45M投资厂内物流管理初创公司是一个清晰的信号：传统自动化巨头正在从工厂产线向工厂全流程延伸，厂内物流自动化（AMR自主移动机器人加车队管理软件）市场规模预计2030年达$60B。ABB Robotics拥有AMR产品线（通过收购ASTI Mobile Robotics），但车队管理软件和物流优化AI这一层的能力矩阵尚不清晰。威胁在于：若竞争对手掌握了物流调度软件，他们可以整合第三方AMR硬件，将ABB的硬件优势边际化。建议：评估ABB ASTI产品线中WMS和MES集成及车队调度软件的能力；扫描物流调度AI领域的并购标的；在ABB Robotics下一个战略周期中，明确将物流软件列为与机器人本体同等优先级的投资方向。"},
-  {s:"Power Elec News",t:"p",d:"8 Jun 2026",day:1,time:"10:00",surl:"https://www.powerelectronicsnews.com/",title:"Wise Integration Advances WiseGan Digital-First Power IC Strategy",brief:"GaN power IC pioneer pushes digital-first approach for more efficient power conversion.",tags:[{l:"TECH",c:"i"},{l:"GAN",c:"i"}],score:72,level:"medium",insight:"Wise Integration的数字优先GaN功率IC策略代表了一个重要的技术范式迁移——将数字控制直接集成到GaN功率芯片中，电源设计复杂度降低60%、器件数量减少40%。与ABB Motion和Electrification的关联：变频器和UPS产品线的功率密度直接受限于功率半导体技术——数字GaN IC可将ABB下一代变频器体积缩小30-50%。建议：产品路线图团队追踪Wise Integration等GaN数字IC初创公司的商业化进度和IP归属；在ABB下一代紧凑型变频器和UPS预研项目中，将数字GaN IC列为优先评估技术路径。"},
-  {s:"Power Elec News",t:"p",d:"5 Jun 2026",day:4,time:"14:00",surl:"https://www.powerelectronicsnews.com/",title:"SiC-Based SSCBs and Discrete SiC Power Modules — June 2026 Roundup",brief:"Industry roundup of SiC solid-state circuit breakers and power modules. Key tech for next-gen electrical protection.",tags:[{l:"TECH",c:"i"},{l:"SiC",c:"i"}],score:74,level:"medium",insight:"SiC固态断路器（SSCB）是电气保护领域正在发生的从机电到固态的颠覆性转变——响应时间从毫秒级降至微秒级（快1000倍），无机械触点磨损，寿命延长10-50倍，体积缩小60%。ABB Electrification目前拥有Emax 2和Tmax等传统断路器王牌产品线（年收入估计$3-4B），SSCB若被竞争对手率先商业化，ABB可能面临柯达时刻——既有的机械断路器专利壁垒在新技术面前被重置。建议：评估ABB固态断路器研发状态；将SSCB列为Electrification部门Top 3技术优先项，确保2027年前有产品发布；同步建设配套的数字生态（云端电弧检测AI、远程运维平台）。"},
-  {s:"Power Elec News",t:"p",d:"5 Jun 2026",day:4,time:"10:00",surl:"https://www.powerelectronicsnews.com/",title:"Flex Launches BMR317 Intermediate Bus Converter for AI Systems",brief:"New power converter specifically designed for AI data center infrastructure — a market ABB serves.",tags:[{l:"PRODUCT",c:"w"},{l:"DATA CENTER",c:"w"}],score:76,level:"high",insight:"Flex（前Flextronics）发布AI专用IBC（中间总线转换器）意味着AI数据中心的电力转换市场不再是传统电气巨头的专属领地，EMS巨头正在向上游渗透到电力电子领域。Flex的优势：垂直整合成本结构比纯电气设备商低15-20%，且与NVIDIA和AMD的既有制造合作关系可捆绑进入数据中心采购清单。对ABB的威胁：若Flex方案成为NVIDIA参考设计的一部分，ABB的配电组合可能面临被集成而非主导集成的角色转变。建议：数据中心业务团队追踪Flex IBC的客户采纳情况；评估ABB是否需要自研IBC或通过合作补齐这块短板。"},
-  {s:"Power Elec News",t:"p",d:"4 Jun 2026",day:5,time:"09:00",surl:"https://www.powerelectronicsnews.com/",title:"ABB's Andrea Estrada-Hein on Eliminating SF6 from Medium Voltage Switchgear",brief:"ABB featured: VP discusses sustainability breakthrough in eliminating SF6 greenhouse gas from MV switchgear.",tags:[{l:"ABB",c:"i"},{l:"SUSTAINABILITY",c:"i"}],score:70,level:"medium",insight:"ABB自身被行业媒体报道SF6替代技术——这不仅是一次正面PR，更是ESG维度的重大竞争壁垒。SF6的全球变暖潜势（GWP）是CO2的23,500倍，欧盟F-Gas法规要求2030年全面禁止。ABB率先推出无SF6中压开关柜，意味着ABB是法规合规的安全选择，客户采购ABB可避免2-3年后被迫更换设备的监管风险。这是进攻不是防守：建议立即将SF6淘汰时间表作为核心竞争武器，制作《SF6替代：客户指南》白皮书，列出竞品SF6产品切换deadline，将可持续性压力转嫁给竞争对手，巩固ABB作为绿色配电领导者的市场认知。"},
-  {s:"Power Elec News",t:"p",d:"4 Jun 2026",day:5,time:"11:00",surl:"https://www.powerelectronicsnews.com/",title:"Vishay Launches 200 A Power Module for 48 V EV Systems",brief:"New high-current power module targets electric vehicle systems — adjacent to ABB's e-mobility business.",tags:[{l:"PRODUCT",c:"w"},{l:"EV",c:"w"}],score:72,level:"medium",insight:"Vishay大举进入48V电动车功率模块市场——特斯拉Cybertruck和最新Model Y已转向48V低压架构，48V正迅速成为下一代汽车电气架构标准。对于ABB E-mobility（充电基础设施）有两层含义：负面——48V车辆的充电系统需要新的功率拓扑，ABB现有充电桩产品可能面临重新设计压力；正面——800V和48V双电平DC-DC转换器需求激增，ABB有机会进入车载功率电子市场。建议：E-mobility部门确认现有充电产品对未来48V车辆的兼容性；探索ABB半导体部门是否可开发针对48V电动车应用的SiC和GaN功率模块。"},
-  {s:"Engineering.com",t:"e",d:"8 Jun 2026",day:1,time:"15:00",surl:"https://www.engineering.com/",title:"NVIDIA Ramps Vera Rubin for Agentic AI Infrastructure",brief:"NVIDIA's next-gen AI hardware platform targets agentic AI workloads — driving massive data center buildout.",tags:[{l:"AI",c:"i"},{l:"DATA CENTER",c:"a"}],score:80,level:"high",insight:"NVIDIA Vera Rubin（Blackwell继任者）专为Agentic AI负载设计——AI数据中心电力密度将在Blackwell基础上再提升40-60%，单机柜功耗从40kW向80-100kW逼近。这对ABB Electrification是双刃剑：正面——配电和冷却基础设施需求随功耗线性增长；负面——更高功率密度意味着液冷成为默认、48V直流配电可能替代传统交流配电。行动建议：按NVIDIA路线图预测电力需求增长曲线——Vera Rubin量产时间约2027年，确保ABB产能和产品准备就绪；密切关注数据中心从AC向DC配电转型的行业标准动向（如Open Compute Project）；与主要Hyperscaler的设施团队保持季度技术沟通——等RFP出来再准备就晚了。"},
-  {s:"Engineering.com",t:"e",d:"7 Jun 2026",day:2,time:"12:00",surl:"https://www.engineering.com/",title:"The Robotics Renaissance: Orchestrating the Future of Manufacturing",brief:"Industry analysis of accelerating robotics adoption across manufacturing — core to ABB Robotics.",tags:[{l:"TREND",c:"w"},{l:"ROBOTICS",c:"i"}],score:74,level:"medium",insight:"机器人复兴趋势背后是三重结构性驱动力：全球制造业到2030年劳动力缺口预计达8500万人，自动化从可选变为必需；协作机器人和AI视觉使中小企业首次有能力部署机器人（全球协作机器人市场CAGR 35%）；制造业回流意味着高工资国家的工厂必须高度自动化。ABB Robotics作为全球第二大工业机器人供应商（市场份额约16%，仅次于Fanuc），正处于需求爆发与竞争加剧的十字路口。建议：将8500万劳动力缺口和35%协作机器人增速等关键数据整合到ABB Robotics客户提案中；重新评估ABB在协作机器人细分市场的竞争力——协作机器人增速是传统工业机器人的3倍，需审视GoFa和SWIFTI产品线的市场表现；将Robotics Renaissance概念作为ABB在汉诺威工博会2027的主题叙事。"},
-  {s:"Engineering.com",t:"e",d:"6 Jun 2026",day:3,time:"10:00",surl:"https://www.engineering.com/",title:"Hitachi and Intel Target Physical AI for Industry",brief:"New partnership brings AI from cloud to factory floor — competing with ABB and Siemens in industrial AI space.",tags:[{l:"PARTNERSHIP",c:"a"},{l:"AI",c:"i"}],score:78,level:"high",insight:"日立和英特尔这个组合的战略逻辑非常清晰：英特尔提供AI算力硬件（Gaudi加速器、至强处理器、边缘AI芯片），日立提供OT领域知识和客户关系（亚太铁路、能源、制造有深厚根基）。这个联盟瞄准的是亚太工业AI这块尚无人主导的市场——ABB在欧洲强、罗克韦尔在北美强，但亚太工业AI市场尚未被任何一家锁定。竞争威胁：日本和东南亚的日立存量客户可能被日立-英特尔工业AI升级包锁定；英特尔加入意味着工业AI硬件加速成为常态，纯软件方案需补充硬件加速器策略。建议：亚太区团队30天内完成日立-英特尔合作对ABB在亚太重点客户的影响评估；ABB需明确自身在工业物理AI中的定位；在ABB下一个战略规划周期中，将亚太工业AI市场竞争格局作为独立议题。"},
-];
+(function load() {
+  var feed = document.getElementById('feed');
+  feed.innerHTML = '<div class="empty"><div class="empty-icon">⏳</div>Loading intelligence data...</div>';
 
-var COMPS = [
-  {n:"Siemens",c:"#009999",u:"https://press.siemens.com/global/en"},
-  {n:"Schneider",c:"#3dcd58",u:"https://www.se.com/ww/en/about-us/newsroom/news/"},
-  {n:"Rockwell",c:"#d97706",u:"https://www.rockwellautomation.com/en-us/company/news/press-releases.html"},
-  {n:"Emerson",c:"#3388cc",u:"https://www.emerson.com/en-us/news/automation-solutions"},
-  {n:"Honeywell",c:"#cc2244",u:"https://www.honeywell.com/us/en/press"},
-  {n:"Mitsubishi",c:"#c42020",u:"https://www.mitsubishielectric.com/news/"},
-];
+  fetch('signals.json?t=' + Date.now())
+    .then(function(r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function(data) {
+      DATA = data;
+      SIGNALS = data.signals || [];
+      COMPS = data.competitors || [];
+
+      // Update hero & stats dynamically
+      var crit = data.signals ? data.signals.filter(function(s){return s.level==='critical'}).length : 0;
+      document.querySelector('.src-bar').innerHTML = '✅ Updated: ' + new Date(data.updated).toLocaleString() + ' · ' + (data.sources||4) + ' sources · ' + (data.total||0) + ' signals';
+      document.querySelector('.stat:nth-child(2) .stat-num').textContent = data.total || 0;
+      document.querySelector('.stat:nth-child(3) .stat-num').textContent = crit;
+
+      // Init the app
+      initApp();
+    })
+    .catch(function(err) {
+      feed.innerHTML = '<div class="empty"><div class="empty-icon">⚠️</div>Failed to load data: ' + err.message + '<br><small>Check that signals.json is accessible</small></div>';
+      console.error('Data load error:', err);
+    });
+})();
+
+// initApp — called after data loads
+function initApp() {
+  render();
+  // Render competitor grid
+  var h = '';
+  COMPS.forEach(function(c){h+='<a class="comp-tile" href="'+c.u+'" target="_blank" rel="noopener"><div class="comp-dot" style="background:'+c.c+'"></div><div class="comp-name">'+c.n+'</div><div class="comp-link">Newsroom ↗</div></a>'});
+  document.getElementById('compGrid').innerHTML = h;
+}
 </script>
 
 <script>
@@ -457,11 +459,7 @@ function render(){
 function setSort(m){sortMode=m;document.querySelectorAll('.sort-btn').forEach(function(b){b.classList.toggle('active',b.dataset.sort===m)});render()}
 document.getElementById('searchInput').addEventListener('input',function(){searchQuery=this.value.trim();render()});
 
-(function(){
-  var h='';
-  COMPS.forEach(function(c){h+='<a class="comp-tile" href="'+c.u+'" target="_blank" rel="noopener"><div class="comp-dot" style="background:'+c.c+'"></div><div class="comp-name">'+c.n+'</div><div class="comp-link">Newsroom ↗</div></a>'});
-  document.getElementById('compGrid').innerHTML=h;
-})();
+// Competitor grid rendered by initApp()
 
 render();
 
@@ -533,3 +531,4 @@ render();
 </script>
 </body>
 </html>
+// render() called by initApp after data load
