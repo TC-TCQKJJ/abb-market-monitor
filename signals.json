@@ -1,14 +1,14 @@
 {
-  "updated": "2026-06-09T15:40:00Z",
+  "updated": "2026-06-10T12:00:00Z",
   "sources": 4,
-  "total": 24,
+  "total": 32,
   "critical": 2,
   "signals": [
     {
       "s": "Siemens Press",
       "t": "s",
       "d": "8 Jun 2026",
-      "day": 1,
+      "day": 2,
       "time": "11:03",
       "surl": "https://press.siemens.com/global/en/event/second-quarter-results-fy-2026",
       "title": "Siemens Q2 FY2026 — Digital Industries Revenue Up, Guidance Raised",
@@ -30,8 +30,31 @@
     {
       "s": "Siemens Press",
       "t": "s",
+      "d": "29 May 2026",
+      "day": 11,
+      "time": "09:00",
+      "surl": "https://press.siemens.com/global/en/pressrelease/markus-grabmeier-appointed-ceo-electrical-products-siemens",
+      "title": "Siemens Appoints Markus Grabmeier as CEO of Electrical Products",
+      "brief": "Siemens brings fresh leadership to its Electrical Products division — a direct competitor to ABB Electrification.",
+      "tags": [
+        {
+          "l": "LEADERSHIP",
+          "c": "a"
+        },
+        {
+          "l": "ELECTRIFICATION",
+          "c": "a"
+        }
+      ],
+      "score": 78,
+      "level": "high",
+      "insight": "西门子电气产品部门换帅不是普通的人事变动——Grabmeier此前领导西门子智能基础设施的电气产品业务，深谙数字化配电和低压设备市场。新CEO到任通常意味着战略复盘和方向调整，未来6-12个月是观察窗口：若Grabmeier推动激进的价格策略或加速数字化产品发布，ABB Electrification将直接承压。建议：一周内完成Grabmeier职业背景分析（过往业绩、战略偏好、公开言论），预判其上任后可能推动的三大举措；ABB Electrification销售团队将此人列为关注对象，在客户对话中监控Siemens EP部门定价和产品动态的异常变化；若Grabmeier来自智能基础设施背景，警惕Siemens在楼宇配电+数字化服务捆绑销售方面的动作。"
+    },
+    {
+      "s": "Siemens Press",
+      "t": "s",
       "d": "19 May 2026",
-      "day": 21,
+      "day": 22,
       "time": "09:00",
       "surl": "https://press.siemens.com/global/en/pressrelease/siemens-and-highbyte-partner-industrial-data-operations-scale-industrial-ai",
       "title": "Siemens + HighByte: Industrial Data Middleware to Scale Factory AI",
@@ -54,7 +77,7 @@
       "s": "Siemens Press",
       "t": "s",
       "d": "14 May 2026",
-      "day": 26,
+      "day": 27,
       "time": "09:00",
       "surl": "https://press.siemens.com/global/en/pressrelease/siemens-and-partners-develop-reference-architecture-purpose-built-nvidia-ai-data",
       "title": "Siemens Builds NVIDIA AI Data Center Reference Architecture",
@@ -76,8 +99,31 @@
     {
       "s": "Siemens Press",
       "t": "s",
+      "d": "11 May 2026",
+      "day": 29,
+      "time": "07:39",
+      "surl": "https://press.siemens.com/global/en/pressrelease/siemens-continues-path-profitable-growth",
+      "title": "Siemens Q2 FY2026: Profitable Growth Across All Industrial Businesses",
+      "brief": "Siemens reports broad-based Q2 growth with raised guidance — competitive benchmark for ABB's upcoming results.",
+      "tags": [
+        {
+          "l": "EARNINGS",
+          "c": "a"
+        },
+        {
+          "l": "BENCHMARK",
+          "c": "w"
+        }
+      ],
+      "score": 80,
+      "level": "high",
+      "insight": "西门子Q2 FY2026财报确认了全线工业业务的盈利增长并上调全年指引，这对ABB构成直接的投资者预期压力。关键数据点：西门子数字工业(DI)有机增长、智能基础设施(SI)利润率扩张幅度、订单出货比(book-to-bill)趋势。若ABB下周公布的Q2数据在任一项上明显落后，将触发分析师负面重估。紧急行动：CFO团队24小时内完成ABB vs Siemens Q2关键指标对比（有机增长率、EBITA利润率、自由现金流转换率、订单积压覆盖率），准备投资者电话会Q&A脚本；若DI增长率差距>2%，需在电话会主动回应，强调ABB在过程自动化（油气、化工、采矿）的顺周期优势；密切监控分析师在Siemens财报后是否下调ABB预期——如有，需主动与Top 10分析师沟通。"
+    },
+    {
+      "s": "Siemens Press",
+      "t": "s",
       "d": "12 May 2026",
-      "day": 28,
+      "day": 29,
       "time": "09:00",
       "surl": "https://press.siemens.com/global/en/pressrelease/siemens-fortifies-cyber-resilience-ensure-energy-supply-critical-infrastructures",
       "title": "Siemens Pushes Cyber Resilience for Critical Energy Infrastructure",
@@ -100,7 +146,7 @@
       "s": "Siemens Press",
       "t": "s",
       "d": "8 May 2026",
-      "day": 32,
+      "day": 33,
       "time": "09:00",
       "surl": "https://press.siemens.com/global/en/pressrelease/siemens-launches-ai-powered-service-further-drive-autonomous-building-operations",
       "title": "Siemens AI Extends from Factory to Building — Cross-Vertical Strategy",
@@ -123,7 +169,7 @@
       "s": "Siemens Press",
       "t": "s",
       "d": "5 May 2026",
-      "day": 35,
+      "day": 36,
       "time": "09:00",
       "surl": "https://press.siemens.com/global/en/pressrelease/siemens-expands-its-digital-portfolio-water-wastewater-and-waste-management",
       "title": "Siemens Digital Water Portfolio Expansion — Overlap with ABB Ability Water",
@@ -146,7 +192,7 @@
       "s": "Siemens Press",
       "t": "s",
       "d": "4 May 2026",
-      "day": 36,
+      "day": 37,
       "time": "09:00",
       "surl": "https://press.siemens.com/global/en/pressrelease/siemens-and-infineon-leverage-silicon-carbide-technology-advance-electrical-protection",
       "title": "Siemens + Infineon: SiC Technology for Next-Gen Electrical Protection",
@@ -169,7 +215,7 @@
       "s": "Siemens Press",
       "t": "s",
       "d": "4 May 2026",
-      "day": 36,
+      "day": 37,
       "time": "09:00",
       "surl": "https://press.siemens.com/global/en/pressrelease/siemens-gridscale-x-redefines-system-operations-and-agentic-transmission-planning",
       "title": "Siemens Gridscale X: Agentic AI Enters Grid Operations — New Category",
@@ -196,7 +242,7 @@
       "s": "Drives & Controls",
       "t": "d",
       "d": "8 Jun 2026",
-      "day": 1,
+      "day": 2,
       "time": "11:03",
       "surl": "https://drivesncontrols.com/skills-gaps-risk-billions-in-ai-productivity-gains-for-uk-manufacturers/",
       "title": "Skills Gaps Threaten Billions in AI Productivity Gains for UK Manufacturing",
@@ -219,7 +265,7 @@
       "s": "Drives & Controls",
       "t": "d",
       "d": "8 Jun 2026",
-      "day": 1,
+      "day": 2,
       "time": "09:21",
       "surl": "https://drivesncontrols.com/austrian-project-uses-ai-to-boost-energy-efficiency-in-industrial-drives/",
       "title": "Austrian Research: AI Boosts Industrial Drive Energy Efficiency 12-18%",
@@ -241,8 +287,35 @@
     {
       "s": "Drives & Controls",
       "t": "d",
+      "d": "4 Jun 2026",
+      "day": 5,
+      "time": "10:38",
+      "surl": "https://drivesncontrols.com/scottish-researchers-develop-100kw-superconducting-motor-for-aircraft/",
+      "title": "Scottish Researchers Demo 100kW Superconducting Motor for Electric Aircraft",
+      "brief": "UK university demonstrates world-first 100kW superconducting motor — propulsion electrification milestone ABB must track.",
+      "tags": [
+        {
+          "l": "TECH",
+          "c": "i"
+        },
+        {
+          "l": "MOTORS",
+          "c": "i"
+        },
+        {
+          "l": "AEROSPACE",
+          "c": "w"
+        }
+      ],
+      "score": 76,
+      "level": "high",
+      "insight": "斯特拉斯克莱德大学100kW超导电机演示是航空电气化推进的里程碑——超导电机功率密度是传统铜线电机的3-5倍，解决了电动飞机最核心的重量瓶颈。航空航天电机市场预计2040年达$42B，是ABB Motion尚未大规模进入的蓝海市场。ABB的核心关切：超导电机技术路线若被Rolls-Royce、GE Aviation或Safran率先掌握并锁定供应链，ABB将被排除在未来航空电气化供应链之外；ABB自身在高温超导(HTS)电机领域是否有研发布局尚不明确。建议：ABB Motion R&D团队48小时内获取该研究完整论文，评估ABB现有电机技术栈中超导路线的缺失；启动与斯特拉斯克莱德大学或同类研究机构的合作洽谈；在ABB技术路线图中明确航空电机战略——独立研发、合作或放弃这个市场需要做出主动决策。"
+    },
+    {
+      "s": "Drives & Controls",
+      "t": "d",
       "d": "5 Jun 2026",
-      "day": 4,
+      "day": 5,
       "time": "11:26",
       "surl": "https://drivesncontrols.com/micro-plc-connects-to-ip-and-mqtt-solving-an-automation-pain-point/",
       "title": "New Micro-PLC With Native IP and MQTT — The New Baseline for IIoT",
@@ -270,6 +343,33 @@
       "t": "d",
       "d": "2 Jun 2026",
       "day": 7,
+      "time": "14:16",
+      "surl": "https://drivesncontrols.com/collaborative-project-puts-humanoid-to-work-in-a-warehouse/",
+      "title": "Accenture-Vodafone-SAP Pilot Humanoid Robots in Warehouse Operations",
+      "brief": "Major IT/services firms test humanoid robots in real warehouses — adjacent threat and opportunity for ABB Robotics.",
+      "tags": [
+        {
+          "l": "ROBOTICS",
+          "c": "a"
+        },
+        {
+          "l": "HUMANOID",
+          "c": "i"
+        },
+        {
+          "l": "LOGISTICS",
+          "c": "w"
+        }
+      ],
+      "score": 82,
+      "level": "high",
+      "insight": "埃森哲、沃达丰和SAP联合进行人形机器人仓储试点是一个行业级信号：IT服务巨头和电信运营商正在绕过传统机器人制造商，直接构建'物理AI+人形机器人+物流运营'的端到端解决方案。这三家公司的组合优势在于：埃森哲提供系统集成和业务流程再造，沃达丰提供5G专网连接，SAP提供WMS和ERP软件——他们不需要ABB的机器人硬件，只需要一个可编程的人形本体。对ABB Robotics的威胁：若IT集成商掌握了仓储自动化的全栈能力，ABB将沦为硬件供应商，利润率被压缩至15%以下。紧急行动：ABB Robotics需评估是否进入人形机器人领域（自研或战略合作）；至少建立与SAP/埃森哲的API集成伙伴关系，确保ABB AMR和机器人与主流WMS/ERP生态兼容；在人形机器人商业化时间线（预计2028-2030规模化）到来前，巩固ABB在传统工业机器人和AMR市场的护城河——硬件性能、可靠性和全球服务网络是IT公司短期内无法复制的壁垒。"
+    },
+    {
+      "s": "Drives & Controls",
+      "t": "d",
+      "d": "2 Jun 2026",
+      "day": 8,
       "time": "09:47",
       "surl": "https://drivesncontrols.com/why-machine-builders-are-rethinking-the-need-for-control-cabinets/",
       "title": "Machine Builders Abandon Control Cabinets — Decentralized Automation Rises",
@@ -292,7 +392,7 @@
       "s": "Drives & Controls",
       "t": "d",
       "d": "1 Jun 2026",
-      "day": 8,
+      "day": 9,
       "time": "14:57",
       "surl": "https://drivesncontrols.com/time-saving-ai-tool-helps-manufacturers-to-scale-machine-vision-tasks/",
       "title": "AI Tool Lets Manufacturers Deploy Machine Vision 3x Faster",
@@ -315,7 +415,7 @@
       "s": "Drives & Controls",
       "t": "d",
       "d": "1 Jun 2026",
-      "day": 8,
+      "day": 9,
       "time": "11:46",
       "surl": "https://drivesncontrols.com/first-1mhz-gan-motor-drive-adds-dynamic-cogging-correction-without-sensors/",
       "title": "World First: 1MHz GaN Motor Drive — Generational Leap in Drive Tech",
@@ -342,7 +442,7 @@
       "s": "Drives & Controls",
       "t": "d",
       "d": "31 May 2026",
-      "day": 9,
+      "day": 10,
       "time": "18:31",
       "surl": "https://drivesncontrols.com/a-0-2-motor-efficiency-rise-could-deliver-savings-of-12bn-for-industry/",
       "title": "Study: 0.2% Motor Efficiency Gain = $12 Billion Annual Savings",
@@ -365,7 +465,7 @@
       "s": "Drives & Controls",
       "t": "d",
       "d": "31 May 2026",
-      "day": 9,
+      "day": 10,
       "time": "18:12",
       "surl": "https://drivesncontrols.com/rockwell-and-others-invest-45m-in-uk-firm-that-manages-factory-fleets/",
       "title": "Rockwell Leads $45M Investment in Factory Fleet Management Startup",
@@ -387,8 +487,89 @@
     {
       "s": "Power Elec News",
       "t": "p",
+      "d": "9 Jun 2026",
+      "day": 0,
+      "time": "17:57",
+      "surl": "https://www.powerelectronicsnews.com/epc-launches-new-gan-based-bldc-inverter-boards/",
+      "title": "EPC Launches GaN-Based BLDC Inverter Boards for Robotics and Industrial Apps",
+      "brief": "EPC releases 80V/29A GaN inverter evaluation boards — accelerating GaN adoption in motor drives, ABB's core market.",
+      "tags": [
+        {
+          "l": "TECH",
+          "c": "a"
+        },
+        {
+          "l": "GAN",
+          "c": "i"
+        },
+        {
+          "l": "DRIVES",
+          "c": "n"
+        }
+      ],
+      "score": 78,
+      "level": "high",
+      "insight": "EPC新推出的GaN BLDC逆变器评估板使中小型电机驱动器开发门槛大幅降低——工程师可在数小时内搭建原型而非数周。更关键的战略信号：GaN在电机驱动领域正从技术演示走向规模化就绪，80V/29A规格覆盖了协作机器人关节电机、AGV驱动、电动工具等大批量应用。对ABB Motion的威胁：若竞争对手（Yaskawa、Siemens、Rockwell）率先量产GaN变频器，ABB现有Si-IGBT产品线在中低功率段将面临代际劣势。建议：ABB Motion确认下一代紧凑型变频器（如ACS180/ACS380系列）是否已规划GaN方案；48小时内获取EPC评估板并启动内部基准测试，建立ABB自身的GaN vs Si-IGBT性能对比数据；如果ABB GaN产品路线图空白，这是Top 5技术债务——GaN变频器的功率密度优势（3-5倍）和开关频率优势（10-100倍）在2-3年内将从差异化变成准入门槛。"
+    },
+    {
+      "s": "Power Elec News",
+      "t": "p",
+      "d": "9 Jun 2026",
+      "day": 0,
+      "time": "17:55",
+      "surl": "https://www.powerelectronicsnews.com/navitas-launches-isolated-to-247-packaging-for-hv-sic-mosfets/",
+      "title": "Navitas Launches Isolated TO-247 Package for High-Voltage SiC MOSFETs",
+      "brief": "Navitas innovates in SiC packaging with integrated isolation — reduces system complexity for power electronics OEMs like ABB.",
+      "tags": [
+        {
+          "l": "TECH",
+          "c": "i"
+        },
+        {
+          "l": "SiC",
+          "c": "i"
+        },
+        {
+          "l": "PACKAGING",
+          "c": "n"
+        }
+      ],
+      "score": 74,
+      "level": "medium",
+      "insight": "纳微半导体推出集成隔离的TO-247封装是一项材料科学+封装工程的组合创新——在标准TO-247尺寸内集成高压隔离和直接冷却，省去了外部隔离屏障和散热器，系统BOM成本降低10-15%、体积缩小20%。对ABB的潜在影响主要在Electrification和Motion两大部门：中压变频器、UPS、固态断路器等产品的功率密度直接受限于功率半导体封装。如果ABB的功率模块供应商未跟进此封装创新，ABB产品在下一代竞争中可能面临体积和散热劣势。建议：供应链团队确认ABB现有SiC模块供应商（英飞凌、Wolfspeed、安森美）是否计划推出类似集成隔离封装；在ABB下一代紧凑型驱动器和UPS预研项目中，评估Navitas SiC方案的兼容性。"
+    },
+    {
+      "s": "Power Elec News",
+      "t": "p",
+      "d": "9 Jun 2026",
+      "day": 0,
+      "time": "13:00",
+      "surl": "https://www.powerelectronicsnews.com/power-module-from-sic-discrete-devices-repackaged-part-2/",
+      "title": "SiC Discrete Devices Repackaged into Power Modules — Cost-Effective Alternative Emerges",
+      "brief": "IMS-based repackaging of discrete SiC devices challenges commercial power modules on cost. Supply chain signal for ABB.",
+      "tags": [
+        {
+          "l": "TECH",
+          "c": "i"
+        },
+        {
+          "l": "SiC",
+          "c": "i"
+        },
+        {
+          "l": "SUPPLY CHAIN",
+          "c": "w"
+        }
+      ],
+      "score": 70,
+      "level": "medium",
+      "insight": "使用IMS（绝缘金属基板）将SiC分立器件重新封装为功率模块是降本路径的重要探索——分立SiC器件价格比商业模块低30-50%，但传统PCB散热不足限制其大功率应用。IMS方案解决了散热瓶颈，使低成本分立器件组合能覆盖原本需要昂贵商业模块的应用场景。对ABB的供应链战略影响：若这种低成本替代方案获得商业化验证，ABB可考虑在其变频器和UPS产品线中采用分立SiC+IMS方案替代部分商业模块，降低BOM成本15-20%；但同时需注意供应链质量管理——分立器件的一致性和可靠性需要额外验证。建议：ABB供应链和工程团队追踪IMS基SiC模块的商业化进度和可靠性数据；评估是否在下一代中低功率产品中引入此方案作为降本路径。"
+    },
+    {
+      "s": "Power Elec News",
+      "t": "p",
       "d": "8 Jun 2026",
-      "day": 1,
+      "day": 2,
       "time": "10:00",
       "surl": "https://www.powerelectronicsnews.com/",
       "title": "Wise Integration Advances WiseGan Digital-First Power IC Strategy",
@@ -412,6 +593,33 @@
       "t": "p",
       "d": "5 Jun 2026",
       "day": 4,
+      "time": "13:00",
+      "surl": "https://www.powerelectronicsnews.com/the-mosfet-innovation-pace-why-silicon-wins-critical-power-stages-alongside-sic-and-gan/",
+      "title": "Infineon Analysis: Why Silicon MOSFETs Still Dominate Alongside SiC and GaN",
+      "brief": "Infineon's Si MOSFET roadmap shows silicon innovation continues — important context for ABB's semiconductor strategy.",
+      "tags": [
+        {
+          "l": "TECH",
+          "c": "i"
+        },
+        {
+          "l": "SEMICONDUCTOR",
+          "c": "n"
+        },
+        {
+          "l": "STRATEGY",
+          "c": "w"
+        }
+      ],
+      "score": 72,
+      "level": "medium",
+      "insight": "英飞凌的硅MOSFET技术路线图分析揭示了一个常被忽略的真相：Si MOSFET仍在以每代15-20%的性能提升速度迭代（顶面冷却、超薄晶圆等创新），在48V-200V中低压领域仍是最具性价比的方案。这意味着ABB的产品路线图不应做'Si→SiC/GaN'的简单替代判断，而应基于功率等级、开关频率、成本敏感度做三轨（Si/SiC/GaN）并行规划。具体而言：ABB的低压断路器、PLC电源、辅助电源等场景继续采用Si MOSFET仍是最优解；中高压场景（650V+）优先评估SiC；高频高效场景（100kHz+）优先评估GaN。建议：将英飞凌这篇分析转交ABB Motion和Electrification的功率电子团队作为技术路线图评审输入；确认ABB产品线中是否存在过度投资SiC/GaN而忽视Si MOSFET持续创新的情况。"
+    },
+    {
+      "s": "Power Elec News",
+      "t": "p",
+      "d": "5 Jun 2026",
+      "day": 5,
       "time": "14:00",
       "surl": "https://www.powerelectronicsnews.com/",
       "title": "SiC-Based SSCBs and Discrete SiC Power Modules — June 2026 Roundup",
@@ -434,7 +642,7 @@
       "s": "Power Elec News",
       "t": "p",
       "d": "5 Jun 2026",
-      "day": 4,
+      "day": 5,
       "time": "10:00",
       "surl": "https://www.powerelectronicsnews.com/",
       "title": "Flex Launches BMR317 Intermediate Bus Converter for AI Systems",
@@ -457,7 +665,7 @@
       "s": "Power Elec News",
       "t": "p",
       "d": "4 Jun 2026",
-      "day": 5,
+      "day": 6,
       "time": "09:00",
       "surl": "https://www.powerelectronicsnews.com/",
       "title": "ABB's Andrea Estrada-Hein on Eliminating SF6 from Medium Voltage Switchgear",
@@ -480,7 +688,7 @@
       "s": "Power Elec News",
       "t": "p",
       "d": "4 Jun 2026",
-      "day": 5,
+      "day": 6,
       "time": "11:00",
       "surl": "https://www.powerelectronicsnews.com/",
       "title": "Vishay Launches 200 A Power Module for 48 V EV Systems",
@@ -503,7 +711,7 @@
       "s": "Engineering.com",
       "t": "e",
       "d": "8 Jun 2026",
-      "day": 1,
+      "day": 2,
       "time": "15:00",
       "surl": "https://www.engineering.com/",
       "title": "NVIDIA Ramps Vera Rubin for Agentic AI Infrastructure",
@@ -526,7 +734,7 @@
       "s": "Engineering.com",
       "t": "e",
       "d": "7 Jun 2026",
-      "day": 2,
+      "day": 3,
       "time": "12:00",
       "surl": "https://www.engineering.com/",
       "title": "The Robotics Renaissance: Orchestrating the Future of Manufacturing",
@@ -549,7 +757,7 @@
       "s": "Engineering.com",
       "t": "e",
       "d": "6 Jun 2026",
-      "day": 3,
+      "day": 4,
       "time": "10:00",
       "surl": "https://www.engineering.com/",
       "title": "Hitachi and Intel Target Physical AI for Industry",
