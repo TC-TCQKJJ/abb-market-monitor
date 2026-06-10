@@ -251,7 +251,7 @@ body{
   padding:.875rem 0;border-bottom:1px solid var(--border);
   transition:background .2s var(--ease);
 }
-.pgroup:last-child .signal:last-child{border-bottom:none}
+#feed .signal:last-child{border-bottom:none}
 .signal:hover{
   background:var(--surface2);
   margin:0 -.75rem;padding:.875rem .75rem;
@@ -987,38 +987,25 @@ function render(){
     return;
   }
 
-  var crit   = items.filter(function(s){return s.score>=85});
-  var high   = items.filter(function(s){return s.score>=75&&s.score<85});
-  var medium = items.filter(function(s){return s.score<75});
+  // Flat list — sort order is fully respected (no forced threat-level grouping)
+  var h='';
+  items.forEach(function(item){
+    var lv=item.score>=85?'c':item.score>=75?'h':'m';
+    h+='<div class="signal">';
+    h+='<div class="sig-hd"><span class="sig-src '+item.t+'">'+item.s+'</span>' +
+       '<span class="sig-date">'+item.d+'</span>' +
+       '<span class="sig-score '+lv+'">'+item.score+'</span></div>';
+    if(item.surl)
+      h+='<div class="sig-title"><a href="'+item.surl+'" target="_blank" rel="noopener">'+item.title+'</a></div>';
+    else
+      h+='<div class="sig-title">'+item.title+'</div>';
+    h+='<div class="sig-brief">'+item.brief+'</div>';
+    h+='<div class="sig-tags">';
+    item.tags.forEach(function(tg){h+='<span class="sig-tag '+tg.c+'">'+tg.l+'</span>'});
+    h+='</div><div class="sig-insight">'+item.insight+'</div></div>';
+  });
 
-  function group(label, dotColor, arr){
-    if(!arr.length) return '';
-    var g='<div class="pgroup">';
-    g+='<div class="pgroup-hd"><span class="pgroup-dot" style="background:'+dotColor+'"></span>' +
-       '<span class="pgroup-label">'+label+'</span>' +
-       '<span class="pgroup-count">'+arr.length+'</span></div>';
-    arr.forEach(function(item){
-      var lv=item.score>=85?'c':item.score>=75?'h':'m';
-      g+='<div class="signal">';
-      g+='<div class="sig-hd"><span class="sig-src '+item.t+'">'+item.s+'</span>' +
-         '<span class="sig-date">'+item.d+'</span>' +
-         '<span class="sig-score '+lv+'">'+item.score+'</span></div>';
-      if(item.surl)
-        g+='<div class="sig-title"><a href="'+item.surl+'" target="_blank" rel="noopener">'+item.title+'</a></div>';
-      else
-        g+='<div class="sig-title">'+item.title+'</div>';
-      g+='<div class="sig-brief">'+item.brief+'</div>';
-      g+='<div class="sig-tags">';
-      item.tags.forEach(function(tg){g+='<span class="sig-tag '+tg.c+'">'+tg.l+'</span>'});
-      g+='</div><div class="sig-insight">'+item.insight+'</div></div>';
-    });
-    return g+'</div>';
-  }
-
-  document.getElementById('feed').innerHTML =
-    group('Critical','#d42020',crit) +
-    group('High','#c17d00',high) +
-    group('Moderate','#8896b0',medium);
+  document.getElementById('feed').innerHTML = h;
 
   // Re-trigger batch animation after re-render
   setTimeout(animateSignalRows, 80);
