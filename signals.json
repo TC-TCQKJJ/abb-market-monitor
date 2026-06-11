@@ -1,9 +1,248 @@
 {
-  "updated": "2026-06-10T12:00:00Z",
+  "updated": "2026-06-11T00:07:07Z",
   "sources": 4,
-  "total": 32,
+  "total": 41,
   "critical": 2,
   "signals": [
+    {
+      "s": "Siemens Press",
+      "t": "s",
+      "d": "10 Jun 2026",
+      "day": 0,
+      "time": "10:00",
+      "surl": "https://press.siemens.com/global/en/pressrelease/siemens-launches-digitalized-vectron-x-locomotive-and-opens-new-rail-service-center-munich",
+      "title": "Siemens Launches Digitalized Vectron X Locomotive — Opens Munich Rail Service Center",
+      "brief": "Siemens Mobility launches next-gen Vectron X with full digitalization, opens new Munich service hub. Direct challenge to ABB's rail electrification and traction business.",
+      "tags": [
+        {
+          "l": "PRODUCT",
+          "c": "a"
+        },
+        {
+          "l": "RAIL",
+          "c": "a"
+        },
+        {
+          "l": "DIGITALIZATION",
+          "c": "w"
+        }
+      ],
+      "score": 78,
+      "level": "high",
+      "insight": "西门子Vectron X机车的发布和慕尼黑铁路服务中心的开放不是孤立的产品事件，而是Siemens Mobility在铁路全生命周期服务（机车+数字化+维保）战略的关键一步。全球铁路电气化市场2030年预计达$85B，Siemens Mobility年收入约€10B，正在从机车制造商转型为铁路系统集成+数字化服务商。对ABB的威胁：ABB在铁路领域主要提供牵引变压器、牵引变流器和变电站电气化设备——Siemens通过自有Vectron平台可实现牵引系统与信号、诊断、维保的深度整合，形成锁定效应；当客户选择Vectron X整车时，ABB的牵引子系统将被排除在外。紧急建议：ABB Traction团队48小时内获取Vectron X技术规格，分析其对ABB牵引变压器和变流器市场份额的潜在影响；评估ABB是否需与阿尔斯通、CAF或Stadler等非Siemens机车制造商建立战略捆绑关系，确保ABB牵引子系统不被Siemens垂直整合挤出；密切关注Siemens Munich服务中心的数字化维保模式——若其数据驱动维保成为行业标准，ABB在铁路服务市场的竞争力将大幅削弱。"
+    },
+    {
+      "s": "Siemens Press",
+      "t": "s",
+      "d": "14 May 2026",
+      "day": 27,
+      "time": "09:00",
+      "surl": "https://press.siemens.com/global/en/pressrelease/siemens-acquires-key-businesses-mermec-strengthen-its-global-rail-technology",
+      "title": "Siemens Acquires Key Businesses of MERMEC to Strengthen Global Rail Technology Portfolio",
+      "brief": "Siemens Mobility acquires MERMEC's signaling and rail measurement businesses — expanding its rail control stack and data capabilities.",
+      "tags": [
+        {
+          "l": "M&A",
+          "c": "a"
+        },
+        {
+          "l": "RAIL",
+          "c": "a"
+        },
+        {
+          "l": "SIGNALING",
+          "c": "w"
+        }
+      ],
+      "score": 82,
+      "level": "high",
+      "insight": "西门子收购MERMEC关键业务（信号和铁路测量）是其铁路全栈战略的又一次垂直整合——信号系统是铁路自动化的'操作系统'，一旦锁定，后续的电气化、通信、维保升级都将被同一供应商捕获。MERMEC在意大利、法国和亚洲有深厚的信号业务根基，这意味着Siemens正在从传统的北欧和中欧市场向ABB的南欧和亚洲核心区域渗透。对ABB的威胁：ABB的铁路电气化业务依赖独立信号系统供应商的开放接口——若Siemens通过MERMEC整合信号+电气化+数字化平台，ABB在新建铁路项目中将面临'系统集成锁定'的竞争劣势。建议：ABB铁路业务团队30天内分析MERMEC收购对ABB在意大利、法国、印度等关键铁路市场的投标竞争力影响；评估是否需要对等收购铁路信号/测量领域的标的（如增量收购或在印度、东南亚等增长市场补强）；在客户对话中强调ABB的开放架构和互操作性优势——与多个信号供应商兼容是ABB对抗Siemens封闭生态的核心武器。"
+    },
+    {
+      "s": "Siemens Press",
+      "t": "s",
+      "d": "12 May 2026",
+      "day": 29,
+      "time": "09:00",
+      "surl": "https://press.siemens.com/global/en/pressrelease/siemens-supervisory-board-outlines-its-succession-plan-ahead-annual-shareholders",
+      "title": "Siemens Supervisory Board Outlines Succession Plan — Mark Schneider to Chair from Feb 2027",
+      "brief": "Siemens announces orderly leadership transition: Jim Hagemann Snabe to step down, Mark Schneider to become Chairman at AGM 2027.",
+      "tags": [
+        {
+          "l": "LEADERSHIP",
+          "c": "w"
+        },
+        {
+          "l": "GOVERNANCE",
+          "c": "w"
+        }
+      ],
+      "score": 76,
+      "level": "high",
+      "insight": "西门子监事会宣布有序的继任计划——Jim Hagemann Snabe（服务12年）将于2027年2月卸任，由Mark Schneider接任主席。这不是普通的人事公告：Schneider此前担任雀巢CEO（2017-2024），以激进的资产组合重组和并购驱动增长著称（任内完成$30B+交易）。他的任命信号可能指向西门子将进入一个更激进的并购和资产剥离周期——对于ABB而言，需要警惕Siemens在关键重叠市场（工业自动化、电气化、数字化）的潜在收购目标。更关键的是：Schneider, Snabe, von Siemens三位长期成员同时离任意味着西门子治理层在2027年初将经历重大重塑，战略方向可能在6-12个月内发生转变。建议：ABB战略团队在2027年Q1-Q2重点监控Siemens新监事会组成后的首次战略声明和资本配置变化；建立Siemens潜在收购目标清单（尤其是与ABB重叠市场的公司），提前评估应对方案；关注Mark Schneider在雀巢时期的并购风格——偏好高溢价收购高增长资产，这可能重塑Siemens的并购逻辑。"
+    },
+    {
+      "s": "Siemens Press",
+      "t": "s",
+      "d": "4 May 2026",
+      "day": 37,
+      "time": "09:00",
+      "surl": "https://press.siemens.com/global/en/pressrelease/siemens-hands-over-first-locomotives-indian-railways-commercial-operations",
+      "title": "Siemens Hands Over First Locomotives to Indian Railways for Commercial Operations",
+      "brief": "Siemens delivers first electric locomotives from its Gujarat factory to Indian Railways — deepening its footprint in the world's largest rail market.",
+      "tags": [
+        {
+          "l": "MILESTONE",
+          "c": "a"
+        },
+        {
+          "l": "INDIA",
+          "c": "a"
+        },
+        {
+          "l": "RAIL",
+          "c": "w"
+        }
+      ],
+      "score": 80,
+      "level": "high",
+      "insight": "西门子向印度铁路交付首批电力机车是一个市场进入里程碑——印度拥有全球第四大铁路网络（68,000公里），政府计划2030年前100%电气化，总采购规模预计$30-50B。西门子在古吉拉特邦建立本地制造基地，意味着它不仅获得了机车订单，还建立了本地化供应链和售后服务能力——这为其在印度这个ABB传统强势市场建立长期竞争壁垒。对ABB的威胁：ABB印度是ABB全球第三大市场（年收入约$1.5B），铁路电气化（牵引变电站、接触网设备、SCADA）是其核心业务之一——但ABB不制造机车整车，当Siemens以机车总包身份进入时，往往可以捆绑电气化设备和长期维保合同，将ABB挤出供应体系。紧急建议：ABB印度团队48小时内评估Siemens Indian Railways合同对ABB在印度铁路电气化市场的份额影响；制定反击策略：强调ABB在印度铁路电气化领域的30年历史积累和本地化服务网络，对抗Siemens的机车+电气化捆绑策略；探索与印度本土机车制造商（如BHEL、CLW）建立电气化设备合作伙伴关系作为第二增长路径。"
+    },
+    {
+      "s": "Drives & Controls",
+      "t": "d",
+      "d": "10 Jun 2026",
+      "day": 0,
+      "time": "14:05",
+      "surl": "https://drivesncontrols.com/cobot-sales-could-double-by-2030-as-payloads-rise-and-prices-fall/",
+      "title": "Cobot Sales Could Double by 2030 as Payloads Rise and Prices Fall",
+      "brief": "Interact Analysis forecasts collaborative robot shipments to nearly double by 2030 (17.3% CAGR) — huge opportunity and threat for ABB Robotics.",
+      "tags": [
+        {
+          "l": "TREND",
+          "c": "w"
+        },
+        {
+          "l": "ROBOTICS",
+          "c": "i"
+        },
+        {
+          "l": "COBOTS",
+          "c": "n"
+        }
+      ],
+      "score": 82,
+      "level": "high",
+      "insight": "协作机器人市场17.3%的年增长率预测不仅是一个市场数据，更是一个战略行动信号——传统工业机器人增长约7-8%，协作机器人增速是其2倍以上意味着市场增量正在向协作机器人倾斜。ABB Robotics的GoFa和SWIFTI协作机器人产品线面临双重压力：正面与Universal Robots（市场份额约40%）和Fanuc CRX系列的竞争，侧面还要应对大量新兴中国协作机器人品牌（如JAKA、Aubo、Elite Robots）的低价冲击。更紧迫的是：半导体和电子制造业是协作机器人的最大增长驱动力（晶圆搬运、精密组装），而这个行业的资本支出周期正在触底反弹——2026年下半年是布局的关键窗口期。建议：ABB Robotics需在48小时内对比GoFa/SWIFTI与UR、Fanuc CRX在10kg以上负载段的产品竞争力——当前行业趋势是协作机器人负载能力持续提升（从5kg向20kg+扩展）；制定大中华区和东南亚电子制造业的专项攻势——这些地区是协作机器人增长最快的市场；在销售材料中引用17.3% CAGR数据，强调ABB已准备好捕捉这一增长浪潮。"
+    },
+    {
+      "s": "Power Elec News",
+      "t": "p",
+      "d": "10 Jun 2026",
+      "day": 0,
+      "time": "15:00",
+      "surl": "https://www.powerelectronicsnews.com/mitsubishi-electric-unveils-new-sic-mosfets-for-ev-powertrains/",
+      "title": "Mitsubishi Electric Unveils 5th-Gen SiC MOSFETs for EV Powertrains — 25% Lower On-Resistance",
+      "brief": "Mitsubishi Electric's 5th-gen SiC MOSFET bare dies target EV traction inverters, with 25% lower on-resistance vs previous gen. Samples shipping late June 2026.",
+      "tags": [
+        {
+          "l": "TECH",
+          "c": "a"
+        },
+        {
+          "l": "SiC",
+          "c": "i"
+        },
+        {
+          "l": "EV",
+          "c": "w"
+        }
+      ],
+      "score": 80,
+      "level": "high",
+      "insight": "三菱电机第五代SiC MOSFET的25%导通电阻降低是材料科学层面的代际跨越——不是渐进改良，而是通过专有沟槽结构实现了关键性能指标的25%跃升。这对ABB有双重影响：首先，三菱是ABB Motion和Electrification部门的关键功率半导体供应商之一，新一代SiC器件的性能提升将直接增强ABB变频器和电气保护产品的竞争力——ABB应优先获取样品进行内部基准测试；其次，三菱将第五代SiC首先用于电动车牵引逆变器（而非工业变频器），意味着工业应用的优先级可能被推迟，若英飞凌或Wolfspeed抢先推出面向工业应用的类似性能产品，ABB可能面临SiC供应链的不对称依赖风险。建议：ABB供应链团队48小时内联系三菱电机，确认第五代SiC MOSFET的工业级版本发布时间表；同时与英飞凌和Wolfspeed确认对应的工业SiC路线图，确保ABB不会因单一供应商的产能分配策略而处于竞争劣势；在ABB下一代牵引变频器预研中，评估第五代SiC对系统效率和功率密度的提升幅度。"
+    },
+    {
+      "s": "Power Elec News",
+      "t": "p",
+      "d": "10 Jun 2026",
+      "day": 0,
+      "time": "14:00",
+      "surl": "https://www.powerelectronicsnews.com/tdk-launches-b25696h-dc-link-capacitors-for-sic-converters/",
+      "title": "TDK Launches B25696H DC-Link Capacitors Optimized for SiC Converters",
+      "brief": "TDK releases new DC-link capacitor series specifically designed for high-frequency SiC-based power converters — enabling more compact and efficient designs.",
+      "tags": [
+        {
+          "l": "PRODUCT",
+          "c": "w"
+        },
+        {
+          "l": "SiC",
+          "c": "i"
+        },
+        {
+          "l": "COMPONENTS",
+          "c": "n"
+        }
+      ],
+      "score": 74,
+      "level": "medium",
+      "insight": "TDK推出SiC专用DC-Link电容器是一个常常被忽视但至关重要的生态信号——SiC的普及不仅需要SiC芯片本身，还需要配套的电容、电感、驱动IC等被动元件同步升级。SiC的高频开关（100kHz-1MHz）对电容器的ESR、ESL和纹波电流能力提出了远超传统Si-IGBT应用的要求。TDK率先推出SiC优化电容意味着SiC生态正从芯片层面向系统元件层面成熟，这将加速SiC变频器的商业化进程。对ABB的意义：ABB Motion和Electrification在开发下一代SiC变频器时，可以充分利用TDK等供应商的SiC优化被动元件，缩短产品开发周期；同时，TDK的进入也意味着SiC生态系统正在分层专业化——ABB不需要自研所有元件，可以专注于系统集成和控制算法这一核心优势。建议：ABB变频器研发团队评估TDK B25696H系列在下一代SiC产品设计中的适用性；将SiC生态成熟度作为产品路线图加速的决策依据之一——生态越成熟，商业化风险越低。"
+    },
+    {
+      "s": "Power Elec News",
+      "t": "p",
+      "d": "10 Jun 2026",
+      "day": 0,
+      "time": "12:00",
+      "surl": "https://www.powerelectronicsnews.com/onsemi-launches-elite-pairing-studio-for-sic-power-devices/",
+      "title": "onsemi Launches Elite Pairing Studio — AI-Driven SiC Gate Driver Matching",
+      "brief": "onsemi's new tool uses AI to optimize SiC MOSFET and gate driver pairing — simplifying design and speeding time-to-market for power electronics OEMs like ABB.",
+      "tags": [
+        {
+          "l": "PRODUCT",
+          "c": "w"
+        },
+        {
+          "l": "SiC",
+          "c": "i"
+        },
+        {
+          "l": "AI",
+          "c": "i"
+        }
+      ],
+      "score": 72,
+      "level": "medium",
+      "insight": "安森美推出的Elite Pairing Studio是一个看似小工具但战略意义重大的产品——SiC MOSFET和栅极驱动器的匹配一直是功率电子设计的痛点，不匹配会导致开关损耗增加30%以上甚至器件损坏。传统匹配依赖资深工程师数周的实验和仿真，而AI驱动工具将这一过程压缩至数小时。对ABB的意义：效率提升——ABB功率电子研发团队可以直接使用此工具加速SiC产品设计；供应链锁定风险——一旦ABB设计团队深度使用onsemi的配对工具，设计惯性将自然导向采用onsemi产品组合，形成供应链软锁定。建议：ABB研发工具链团队评估Elite Pairing Studio的技术价值，同时确保ABB的SiC设计流程不依赖单一供应商的专有工具——应要求SiC供应商提供开放的仿真模型和设计参考，避免被工具链锁定。"
+    },
+    {
+      "s": "Power Elec News",
+      "t": "p",
+      "d": "10 Jun 2026",
+      "day": 0,
+      "time": "13:00",
+      "surl": "https://www.powerelectronicsnews.com/tsmc-paves-the-way-to-one-trillion-transistor-devices/",
+      "title": "TSMC Paves the Way to One-Trillion-Transistor Devices — 3D Heterogeneous Integration",
+      "brief": "TSMC advances 3D heterogeneous integration enabling trillion-transistor chips. Downstream impact on industrial AI hardware and power electronics control.",
+      "tags": [
+        {
+          "l": "TECH",
+          "c": "i"
+        },
+        {
+          "l": "SEMICONDUCTOR",
+          "c": "i"
+        },
+        {
+          "l": "AI",
+          "c": "i"
+        }
+      ],
+      "score": 76,
+      "level": "high",
+      "insight": "台积电万亿晶体管器件的3D异构集成路线图虽然是半导体制造层面的技术进展，但对ABB有间接但深远的影响：万亿晶体管芯片将从根本上改变工业AI和边缘计算的能力边界——未来PLC、机器人控制器和变频器中的AI推理能力将提升100-1000倍，实现实时复杂决策而非简单规则判断。这意味着工业自动化产品的竞争将从纯硬件性能转向AI赋能水平——谁能在产品中嵌入更强大的AI推理芯片，谁就能提供更智能的预测性维护、自适应控制和异常检测。建议：ABB技术战略团队追踪3D异构集成对工业AI芯片成本-性能曲线的影响——当万亿晶体管芯片成本降至$100以下时，工业AI将在每个ABB产品中实现；在ABB产品路线图中为AI芯片的性能跃升预留架构灵活性——避免当前设计在3-5年内成为AI能力瓶颈。"
+    },
     {
       "s": "Siemens Press",
       "t": "s",
