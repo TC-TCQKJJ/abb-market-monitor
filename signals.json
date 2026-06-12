@@ -1,9 +1,171 @@
 {
-  "updated": "2026-06-11T00:07:07Z",
+  "updated": "2026-06-12T00:02:47Z",
   "sources": 4,
-  "total": 41,
+  "total": 47,
   "critical": 2,
   "signals": [
+    {
+      "s": "Drives & Controls",
+      "t": "d",
+      "d": "11 Jun 2026",
+      "day": 1,
+      "time": "14:55",
+      "surl": "https://drivesncontrols.com/uk-industrial-ai-plan-aims-to-boost-productivity-by-2-5/",
+      "title": "UK Industrial AI Plan Aims to Boost Productivity by 2.5% — 200M+ Funding Backed",
+      "brief": "UK government announces 200M+ AI adoption plan for manufacturing, with 'AI lighthouse' factories and national testbeds. Siemens UK CEO Brian Holliday endorses the plan.",
+      "tags": [
+        {
+          "l": "POLICY",
+          "c": "w"
+        },
+        {
+          "l": "AI",
+          "c": "i"
+        },
+        {
+          "l": "UK",
+          "c": "w"
+        }
+      ],
+      "score": 76,
+      "level": "high",
+      "insight": "英国政府200M+的制造业AI采纳计划是一个国家级市场催化剂：包含AI灯塔工厂、技能培训和SME扩展路径。直接影响ABB UK（年收入约$800M）——政策驱动的AI需求激增将转化为对ABB Ability、机器人自动化和数字孪生方案的采购。竞争角度：Siemens UK CEO Brian Holliday亲自背书该计划，并引用OECD数据称AI可提升UK生产力0.4-1.3个百分点——这暗示Siemens已在积极游说政策制定者，将自己定位为UK工业AI采纳的首选伙伴。ABB UK必须紧急行动：48小时内联系DSIT和MakeUK，确保ABB被纳入AI灯塔工厂的技术供应商名单；发布ABB对UK制造业AI采纳的白皮书，引用ABB在英国的具体案例（如ABB机器人UK Milton Keynes中心）；在UK渠道合作伙伴中传播ABB Ability AI的易用性叙事——UK中小制造商的最大障碍不是技术，而是技能差距。"
+    },
+    {
+      "s": "Drives & Controls",
+      "t": "d",
+      "d": "11 Jun 2026",
+      "day": 1,
+      "time": "10:43",
+      "surl": "https://drivesncontrols.com/record-1-4bn-funding-will-accelerate-development-of-cognitive-robots/",
+      "title": "Record $1.4B Funding for Neura Robotics — Cognitive Robot Platform 'Neuraverse'",
+      "brief": "German cognitive robotics pioneer Neura Robotics raises up to $1.4B (largest-ever for full-stack robotics) from Tether, Qualcomm, Amazon, NVIDIA, Bosch, Schaeffler. Targets multi-million serial production by 2030.",
+      "tags": [
+        {
+          "l": "FUNDING",
+          "c": "a"
+        },
+        {
+          "l": "ROBOTICS",
+          "c": "a"
+        },
+        {
+          "l": "COGNITIVE",
+          "c": "i"
+        }
+      ],
+      "score": 84,
+      "level": "high",
+      "insight": "Neura Robotics的$1.4B融资是机器人行业历史上最大的单笔融资之一，投资者名单堪称工业AI的'全明星阵容'——Qualcomm、Amazon、NVIDIA、Bosch、Schaeffler。这不是一个初创公司的融资事件，而是一个生态系统的形成信号：Neuraverse平台试图定义认知机器人的操作系统标准——机器人之间共享技能、学习和实时数据。对ABB Robotics的威胁：ABB在传统工业机器人市场有强地位，但Neura的认知机器人范式（AI-native、云端协同学习、人形机器人）代表了一种根本不同的产品架构。若Neuraverse成为事实标准，ABB的RobotStudio和OmniCore将被孤立在旧范式中。紧迫行动：ABB Robotics战略团队48小时内深度分析Neura的投资者名单和产品路线图——Bosch和Schaeffler的参与意味着工业界已经开始为'后传统机器人'时代下注；评估ABB是否需要对等投资认知机器人平台或与Neura等建立合作关系；在ABB机器人路线图中加速物理AI和认知能力的集成。"
+    },
+    {
+      "s": "Power Elec News",
+      "t": "p",
+      "d": "11 Jun 2026",
+      "day": 1,
+      "time": "13:00",
+      "surl": "https://www.powerelectronicsnews.com/power-corner-ferric-ceo-noah-sturcken-on-the-fe1766-beol-integration-and-the-input-voltage-roadmap/",
+      "title": "Ferric CEO: On-Die Voltage Regulator Fe1766 — 89% Efficiency at 160A, 10MHz Bandwidth",
+      "brief": "Ferric's Fe1766 integrated voltage regulator (IVR) uses thin-film magnetics at chip-level, delivering 89% efficiency and 10MHz control bandwidth for AI processors. Part of Marvell's PIVR ecosystem with TSMC.",
+      "tags": [
+        {
+          "l": "TECH",
+          "c": "i"
+        },
+        {
+          "l": "POWER",
+          "c": "i"
+        },
+        {
+          "l": "AI CHIPS",
+          "c": "w"
+        }
+      ],
+      "score": 74,
+      "level": "medium",
+      "insight": "Ferric的片上IVR技术代表了电力电子的一个核心趋势：功率转换正从板级向芯片级迁移。10MHz控制带宽可实现动态电压调节，为AI处理器节省30-50%功耗——这对数据中心和工业AI硬件是变革性的。对ABB的间接影响：ABB Power Conversion部门（为数据中心提供UPS和配电方案）需要追踪这一趋势——当芯片自身集成高精度电源管理后，外部电源系统的角色将从精密稳压转向更简单的母线供电，这可能会压缩ABB在数据中心精密配电领域的价值空间。建议：ABB Power Conversion团队将Ferric/Marvell的IVR技术纳入技术路线图分析，评估对中低压配电产品需求的影响；积极关注TSMC在3D异构集成方面的进展——这可能加速片上电源管理成为主流。"
+    },
+    {
+      "s": "Engineering.com",
+      "t": "e",
+      "d": "11 Jun 2026",
+      "day": 1,
+      "time": "15:10",
+      "surl": "https://www.engineering.com/ptc-adds-ai-assistant-in-creo-13-and-creo-13-3/",
+      "title": "PTC Adds AI Assistant in Creo 13 — Chat Interface, Model-Aware Design Intelligence",
+      "brief": "PTC launches Creo 13 with AI Assistant (chatbot + model-aware AI in beta + automation in alpha), 70% faster Windchill assembly loading, and expanded simulation coverage.",
+      "tags": [
+        {
+          "l": "PRODUCT",
+          "c": "w"
+        },
+        {
+          "l": "CAD",
+          "c": "w"
+        },
+        {
+          "l": "AI",
+          "c": "i"
+        }
+      ],
+      "score": 72,
+      "level": "medium",
+      "insight": "PTC Creo 13的AI Assistant是CAD软件AI化的标志性事件——不仅是简单的产品支持聊天机器人，更包含了模型感知AI（Assist模式）和自动化设计（Automate模式）的功能路线图。对ABB的影响：ABB的工程团队大量使用CAD/PLM工具进行产品设计（变压器、机器人、开关柜等）。若竞争者在CAD中嵌入AI后显著缩短设计周期，ABB内部设计效率劣势将转化为产品成本劣势。建议：ABB工程IT团队评估Creo 13 AI功能对ABB现有设计流程的提升潜力——若可缩短设计周期15%+，应优先部署升级；跟踪PTC的Automate模式发展——当AI能自动生成可制造的3D组件时，工程团队的工作方式将根本改变。"
+    },
+    {
+      "s": "Engineering.com",
+      "t": "e",
+      "d": "11 Jun 2026",
+      "day": 1,
+      "time": "11:48",
+      "surl": "https://www.engineering.com/reka-adds-moonvalley-team-for-physical-ai-work/",
+      "title": "Reka Absorbs Moonvalley Team — World Language Action Model for Physical AI",
+      "brief": "Reka merges with Moonvalley to accelerate World Language Action Model (WLAM) — AI that reasons, simulates, and acts in the physical world. Team includes ex-DeepMind, Meta, Google researchers.",
+      "tags": [
+        {
+          "l": "M&A",
+          "c": "w"
+        },
+        {
+          "l": "PHYSICAL AI",
+          "c": "i"
+        },
+        {
+          "l": "ROBOTICS",
+          "c": "i"
+        }
+      ],
+      "score": 76,
+      "level": "high",
+      "insight": "Reka收购Moonvalley以加速World Language Action Model（WLAM）——一种能推理、仿真并在物理世界行动的AI模型。这代表了Physical AI领域的一个关键趋势：从单纯的视觉/语言模型向可在现实世界中执行动作的Agentic AI进化。对ABB Robotics和Machine Automation的影响：WLAM类模型可能是未来机器人控制系统的大脑——能将自然语言指令直接转换为机器人的物理动作序列。若ABB不跟踪这一技术路径，未来机器人产品的编程范式和易用性将落后于集成WLAM的竞争对手。建议：ABB Research团队将WLAM和Physical AI纳入技术侦察范围；在ABB机器人控制架构中预留与Physical AI模型集成的接口；关注Google DeepMind、OpenAI和NVIDIA在Physical AI方面的最新进展——这可能成为机器人行业的下一个技术断点。"
+    },
+    {
+      "s": "Engineering.com",
+      "t": "e",
+      "d": "10 Jun 2026",
+      "day": 2,
+      "time": "16:18",
+      "surl": "https://www.engineering.com/advantech-expands-nvidia-partnership-for-factory-ai/",
+      "title": "Advantech Expands NVIDIA Partnership — AI Factory Brain with NemoClaw Agentic AI",
+      "brief": "Advantech launches AI Factory Brain built on NVIDIA FOX blueprint and NemoClaw, deploying agentic AI across factory operations. 12% productivity gain in own factory pilot. Uses NVIDIA IGX Thor, Jetson Thor hardware.",
+      "tags": [
+        {
+          "l": "PARTNERSHIP",
+          "c": "a"
+        },
+        {
+          "l": "FACTORY AI",
+          "c": "a"
+        },
+        {
+          "l": "AGENTIC AI",
+          "c": "i"
+        }
+      ],
+      "score": 80,
+      "level": "high",
+      "insight": "Advantech联合NVIDIA发布AI Factory Brain——一个基于NVIDIA FOX蓝图和NemoClaw的多Agent工厂AI系统。这不是实验室概念：Advantech已在自家工厂验证，实现12%装配线生产力提升和10%能源消耗降低（预测）。更关键的是，该系统集成了SAP、MES和WMS等企业系统，实现了从ERP到产线边缘的完整AI闭环。对ABB的威胁：Advantech是ABB在工业边缘计算和工厂自动化领域的直接竞争者（尤其是在IPC和HMI市场）。当Advantech以NVIDIA全栈AI武装其硬件平台后，ABB的PLC和DCS系统在智能化方面将处于劣势——客户不再比较硬件规格，而是比较AI能力。紧急建议：ABB Process Automation团队24小时内分析Advantech AI Factory Brain的能力矩阵；评估ABB Ability与NVIDIA FOX蓝图的对标差距；在ABB DCS路线图中加速Agentic AI功能的集成——Advantech已经证明了12%的OEE提升是可行的，ABB不能落后。"
+    },
     {
       "s": "Siemens Press",
       "t": "s",
